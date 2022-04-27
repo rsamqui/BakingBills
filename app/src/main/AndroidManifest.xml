@@ -10,6 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BakingBills">
         <activity
+<<<<<<< HEAD
             android:name=".UI.ScreenSplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight">
@@ -23,6 +24,15 @@
             android:name=".MainActivity"
             android:exported="true">
 
+=======
+            android:name=".MainActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+>>>>>>> d148b16cf56e77ee5cdd76325e5c2ac32164f8ba
         </activity>
     </application>
 

@@ -30,19 +30,28 @@ android {
     kotlinOptions {
         jvmTarget = '1.8'
     }
+<<<<<<< HEAD
     buildFeatures{
         viewBinding = true
         dataBinding = true
     }
+=======
+>>>>>>> d148b16cf56e77ee5cdd76325e5c2ac32164f8ba
 }
 
 dependencies {
 
     def material_version = "1.5.0", life_cycle = "2.4.1", nav = "2.4.2",
+<<<<<<< HEAD
     retrofit_version = "2.9.0", room_version = "2.4.2", recyclerview_version = "1.2.1",
     recyclerview_selection_version = "1.1.0", coroutines_version = "1.6.1", lottieVersion = "3.4.0",
     rounded_images = "3.1.0"
     
+=======
+        retrofit_version = "2.9.0", room_version = "2.4.2", recyclerview_version = "1.2.1",
+        recyclerview_selection_version = "1.1.0", coroutines_version = "1.6.1", lottieVersion = "3.4.0"
+
+>>>>>>> d148b16cf56e77ee5cdd76325e5c2ac32164f8ba
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -83,6 +92,9 @@ dependencies {
     // Lottie
     implementation "com.airbnb.android:lottie:$lottieVersion"
 
+<<<<<<< HEAD
     //Rounded ImageView
     implementation "de.hdodenhof:circleimageview:$rounded_images"
+=======
+>>>>>>> d148b16cf56e77ee5cdd76325e5c2ac32164f8ba
 }
