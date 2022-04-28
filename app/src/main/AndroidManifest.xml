@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.rsamqui.bakingbills">
-
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
@@ -10,29 +9,23 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.BakingBills">
         <activity
-<<<<<<< HEAD
             android:name=".UI.ScreenSplashActivity"
             android:exported="true"
             android:theme="@style/Theme.AppCompat.DayNight">
-        <intent-filter>
-            <action android:name="android.intent.action.MAIN" />
-
-            <category android:name="android.intent.category.LAUNCHER" />
-        </intent-filter>
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <activity
             android:name=".MainActivity"
             android:exported="true">
 
-=======
-            android:name=".MainActivity"
-            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
->>>>>>> d148b16cf56e77ee5cdd76325e5c2ac32164f8ba
+
         </activity>
     </application>
 
