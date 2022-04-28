@@ -43,6 +43,7 @@ dependencies {
     recyclerview_selection_version = "1.1.0", coroutines_version = "1.6.1", lottieVersion = "3.4.0",
     rounded_images = "3.1.0"
 
+
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
