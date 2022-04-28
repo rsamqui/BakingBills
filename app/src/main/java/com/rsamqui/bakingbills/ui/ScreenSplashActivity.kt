@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.UI
+package com.rsamqui.bakingbills.ui
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
