@@ -11,4 +11,5 @@
     <string name="presupuesto">Presupuesto</string>
     <string name="productos">Productos</string>
     <string name="usuarios">Usuarios</string>
+    <string name="inventory_amp_budget_system"><![CDATA[Inventory & Budget System]]></string>
 </resources>
