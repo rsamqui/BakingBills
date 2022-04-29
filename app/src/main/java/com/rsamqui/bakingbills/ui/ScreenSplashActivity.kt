@@ -5,7 +5,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import com.rsamqui.bakingbills.MainActivity
+import com.rsamqui.bakingbills.navigation.MainActivity
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.databinding.ActivityScreenSplashBinding
 
@@ -29,7 +29,7 @@ class ScreenSplashActivity : AppCompatActivity() {
         )
     }
 
-    private fun startFirstActivity() = startActivity(Intent(this,MainActivity::class.java))
+    private fun startFirstActivity() = startActivity(Intent(this, MainActivity::class.java))
 
 
 }

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/ingredientsFragment"
+        android:icon="@drawable/flour"
+        android:enabled="true"
+        android:title="@string/ingredientes"/>
+
+    <item
+        android:id="@+id/productsFragment"
+        android:icon="@drawable/bread"
+        android:enabled="true"
+        android:title="@string/productos" />
+
+    <item
+        android:id="@+id/budgetFragment"
+        android:icon="@drawable/money"
+        android:enabled="true"
+        android:title="@string/presupuesto"/>
+
+    <item
+        android:id="@+id/usersFragment"
+        android:icon="@drawable/users"
+        android:enabled="true"
+        android:title="@string/usuarios"/>
+
+</menu>

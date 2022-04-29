@@ -1,84 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@android:color/white"
-    android:orientation="vertical"
-    android:backgroundTint="#FFF3DC">
+    tools:context=".navigation.MainActivity">
 
 
-    <TextView
-        android:layout_width="236dp"
+    <fragment
+        android:id="@+id/nav_host"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:defaultNavHost="true"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:navGraph="@navigation/nav_graph"
+        tools:ignore="FragmentTagUsage" />
+
+    <com.google.android.material.bottomnavigation.BottomNavigationView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="90dp"
+        android:id="@+id/bottom_navigation"
+        tools:layout_height="60dp"
+        tools:background="#7C6F4D"
+        app:menu="@menu/bottom_view_menu"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        />
 
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="@string/baking_bill"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:typeface="monospace" />
-
-    <ImageView
-        android:layout_width="180dp"
-        android:layout_height="180dp"
-        android:layout_gravity="center"
-        android:layout_marginTop="10dp"
-        android:scaleType="centerInside"
-        android:scaleX="2"
-        android:scaleY="2"
-        android:src="@drawable/logo"
-        tools:ignore="ContentDescription" />
-
-    <EditText
-        android:layout_gravity="center"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:drawableStart="@drawable/lock"
-        android:background="@drawable/custom_input"
-        android:drawablePadding="12dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:hint="@string/usuario"
-        android:textColorHint="#68604A"
-        android:autofillHints=""
-        android:inputType="text"
-        android:textColor="@color/black" />
-    
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="16dp"/>
-
-    <EditText
-        android:layout_gravity="center"
-        android:layout_width="300dp"
-        android:layout_height="60dp"
-        android:hint="@string/contrase_a"
-        android:textColorHint="#68604A"
-        android:drawableStart="@drawable/user"
-        android:background="@drawable/custom_input"
-        android:drawablePadding="12dp"
-        android:paddingStart="12dp"
-        android:paddingEnd="12dp"
-        android:autofillHints=""
-        android:inputType="text"
-        android:textColor="@color/black" />
-
-    <Space
-        android:layout_width="match_parent"
-        android:layout_height="80dp"/>
-
-    <Button
-        android:layout_width="180dp"
-        android:layout_height="60dp"
-        android:text="@string/entrar"
-        android:layout_gravity="center"
-        android:backgroundTint="#4C4533"
-        android:textColor="#CDC7B4"/>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
