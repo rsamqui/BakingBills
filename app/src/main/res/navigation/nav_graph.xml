@@ -80,4 +80,20 @@
             android:id="@+id/add_user_to_usuarios"
             app:destination="@id/usersFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/budgetFragment"
+        android:name="com.rsamqui.bakingbills.navigation.PresupuestoFragment"
+        android:label="PresupuestoFragment" >
+        <action
+            android:id="@+id/budget_to_add_budget"
+            app:destination="@id/addPresupuestoFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addPresupuestoFragment"
+        android:name="com.rsamqui.bakingbills.navigation.addPresupuestoFragment"
+        android:label="addPresupuestoFragment" >
+        <action
+            android:id="@+id/add_budget_to_budget"
+            app:destination="@id/budgetFragment" />
+    </fragment>
 </navigation>

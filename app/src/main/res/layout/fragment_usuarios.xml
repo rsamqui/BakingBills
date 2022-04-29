@@ -10,19 +10,39 @@
     android:backgroundTint="#FFF3DC"
     android:padding="16dp">
 
-    <androidx.recyclerview.widget.RecyclerView
+    <LinearLayout
+        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        android:layout_height="match_parent"
+        tools:ignore="UselessParent">
 
-    <com.google.android.material.floatingactionbutton.FloatingActionButton
-        android:id="@+id/addUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|right"
-        android:clickable="true"
-        android:src="@drawable/add"
-        android:backgroundTint="#65604F"
-        tools:ignore="ContentDescription,KeyboardInaccessibleWidget,
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="@string/lista_de_usuarios"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:typeface="monospace"/>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/addUser"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|right"
+            android:clickable="true"
+            android:src="@drawable/add"
+            android:backgroundTint="#65604F"
+            tools:ignore="ContentDescription,KeyboardInaccessibleWidget,
         RtlHardcoded" />
+    </LinearLayout>
 
 </FrameLayout>

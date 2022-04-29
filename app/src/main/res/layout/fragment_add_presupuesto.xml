@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".navigation.addIngredientsFragment"
+    tools:context="navigation.addPresupuestoFragment"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:backgroundTint="#FFF3DC"
@@ -16,16 +15,17 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textAlignment="center"
-        android:text="@string/agregar_ingredientes"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:typeface="monospace"/>
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/agregar_presupuesto"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="monospace"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -34,12 +34,8 @@
             android:layout_gravity="center"
             tools:ignore="ContentDescription" />
 
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
-
         <EditText
-            android:id="@+id/etNombre"
+            android:id="@+id/etMotivo"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -47,7 +43,7 @@
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/tag"
             android:drawablePadding="12dp"
-            android:hint="@string/nombre"
+            android:hint="@string/motivo_ingredientes_producto"
             android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -57,6 +53,7 @@
         <Space
             android:layout_width="match_parent"
             android:layout_height="16dp"/>
+
 
         <EditText
             android:id="@+id/etCantidad"
@@ -79,7 +76,27 @@
             android:layout_height="16dp"/>
 
         <EditText
-            android:id="@+id/etPrecio"
+            android:id="@+id/etPrecioUnd"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/unit"
+            android:drawablePadding="12dp"
+            android:hint="@string/punit"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#68604A" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <EditText
+            android:id="@+id/etPrecioT"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -87,17 +104,18 @@
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/money"
             android:drawablePadding="12dp"
-            android:hint="@string/Precio"
+            android:hint="@string/precio_total"
             android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
             android:textColorHint="#68604A" />
-        
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="150dp"/>
-        
+            android:layout_height="50dp"/>
+
+
         <LinearLayout
 
             android:orientation="horizontal"
@@ -115,7 +133,7 @@
                 android:textColor="#CDC7B4" />
 
             <Space
-                android:layout_width="140dp"
+                android:layout_width="135dp"
                 android:layout_height="match_parent"/>
 
             <Button
@@ -132,4 +150,5 @@
         </LinearLayout>
 
     </LinearLayout>
+
 </FrameLayout>
