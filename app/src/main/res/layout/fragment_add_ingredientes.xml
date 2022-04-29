@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="navigation.addProductFragment"
+    tools:context=".navigation.addIngredientsFragment"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:backgroundTint="#FFF3DC"
@@ -15,17 +16,16 @@
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="@string/agregar_producto"
-            android:fontFamily="sans-serif-smallcaps"
-            android:textAlignment="center"
-            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-            android:textColor="@color/black"
-            android:textSize="24sp"
-            android:textStyle="bold"
-            android:typeface="monospace"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fontFamily="sans-serif-smallcaps"
+        android:textAlignment="center"
+        android:text="@string/agregar_ingredientes"
+        android:textColor="@color/black"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:typeface="monospace"/>
 
         <ImageView
             android:layout_width="wrap_content"
@@ -55,15 +55,15 @@
             android:layout_height="16dp"/>
 
         <EditText
-            android:id="@+id/etDescripcion"
+            android:id="@+id/etCantidad"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:autofillHints=""
             android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/text"
+            android:drawableStart="@drawable/quiantity"
             android:drawablePadding="12dp"
-            android:hint="@string/descripcion"
+            android:hint="@string/Cantidad"
             android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -89,46 +89,11 @@
             android:paddingEnd="12dp"
             android:textColor="@color/black"
             android:textColorHint="#68604A" />
-
+        
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp"/>
-
-        <EditText
-            android:id="@+id/etCantidad"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:autofillHints=""
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/quiantity"
-            android:drawablePadding="12dp"
-            android:hint="@string/Cantidad"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textColor="@color/black"
-            android:textColorHint="#68604A" />
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp"/>
-
-        <EditText
-            android:id="@+id/etPeso"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:autofillHints=""
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/weight"
-            android:drawablePadding="12dp"
-            android:hint="@string/peso_gr"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textColor="@color/black"
-            android:textColorHint="#68604A" />
-
+            android:layout_height="150dp"/>
+        
         <LinearLayout
 
             android:orientation="horizontal"
@@ -146,7 +111,7 @@
                 android:textColor="#CDC7B4" />
 
             <Space
-                android:layout_width="135dp"
+                android:layout_width="140dp"
                 android:layout_height="match_parent"/>
 
             <Button
@@ -163,5 +128,4 @@
         </LinearLayout>
 
     </LinearLayout>
-
 </FrameLayout>

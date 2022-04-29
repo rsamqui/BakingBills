@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="navigation.addProductFragment"
+    tools:context="navigation.addUserFragment"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:backgroundTint="#FFF3DC"
@@ -18,30 +18,30 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/agregar_producto"
             android:fontFamily="sans-serif-smallcaps"
-            android:textAlignment="center"
+            android:gravity="center"
+            android:text="@string/agregar_nuevo_usuario"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/black"
             android:textSize="24sp"
             android:textStyle="bold"
-            android:typeface="monospace"/>
+            android:typeface="monospace" />
 
         <ImageView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo"
             android:layout_gravity="center"
+            android:src="@drawable/logo"
             tools:ignore="ContentDescription" />
 
         <EditText
-            android:id="@+id/etNombre"
+            android:id="@+id/etNombres"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:autofillHints=""
             android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/tag"
+            android:drawableStart="@drawable/name"
             android:drawablePadding="12dp"
             android:hint="@string/nombre"
             android:inputType="text"
@@ -52,18 +52,18 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp"/>
+            android:layout_height="16dp" />
 
         <EditText
-            android:id="@+id/etDescripcion"
+            android:id="@+id/etApellidos"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:autofillHints=""
             android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/text"
+            android:drawableStart="@drawable/surname"
             android:drawablePadding="12dp"
-            android:hint="@string/descripcion"
+            android:hint="@string/apellidos"
             android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -72,18 +72,18 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp"/>
+            android:layout_height="16dp" />
 
         <EditText
-            android:id="@+id/etPrecio"
+            android:id="@+id/etUsuario"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:autofillHints=""
             android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/money"
+            android:drawableStart="@drawable/username"
             android:drawablePadding="12dp"
-            android:hint="@string/Precio"
+            android:hint="@string/usuario"
             android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -92,49 +92,52 @@
 
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp"/>
+            android:layout_height="16dp" />
 
         <EditText
-            android:id="@+id/etCantidad"
+            android:id="@+id/etEmail"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:autofillHints=""
             android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/quiantity"
+            android:drawableStart="@drawable/email"
             android:drawablePadding="12dp"
-            android:hint="@string/Cantidad"
+            android:hint="@string/correo"
             android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
-            android:textColorHint="#68604A" />
+            android:textColorHint="#68604A"
+            tools:ignore="TextFields" />
+
         <Space
             android:layout_width="match_parent"
-            android:layout_height="16dp"/>
+            android:layout_height="16dp" />
 
         <EditText
-            android:id="@+id/etPeso"
+            android:id="@+id/etContraseña"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:autofillHints=""
             android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/weight"
+            android:drawableStart="@drawable/pass"
             android:drawablePadding="12dp"
-            android:hint="@string/peso_gr"
+            android:hint="@string/contrase_a"
             android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
-            android:textColorHint="#68604A" />
+            android:textColorHint="#68604A"
+            tools:ignore="TextFields" />
 
         <LinearLayout
 
-            android:orientation="horizontal"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center">
+            android:layout_gravity="bottom|center"
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btnVolver"
@@ -147,7 +150,7 @@
 
             <Space
                 android:layout_width="135dp"
-                android:layout_height="match_parent"/>
+                android:layout_height="match_parent" />
 
             <Button
                 android:id="@+id/btnAgregar"
@@ -157,8 +160,6 @@
                 android:backgroundTint="#4C4533"
                 android:text="@string/agregar"
                 android:textColor="#CDC7B4" />
-
-
 
         </LinearLayout>
 

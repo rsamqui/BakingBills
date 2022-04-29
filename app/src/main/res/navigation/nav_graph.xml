@@ -35,4 +35,49 @@
             android:id="@+id/add_products_to_products"
             app:destination="@id/productsFragment" />
     </fragment>
+    <fragment
+        android:id="@+id/ingredientsFragment"
+        android:name="com.rsamqui.bakingbills.navigation.IngredientesFragment"
+        android:label="IngredientesFragment" >
+        <action
+            android:id="@+id/ingredientes_to_add_ingredientes"
+            app:destination="@id/addIngredientesFragment" />
+        <action
+            android:id="@+id/ingredientes_to_edit_ingredientes"
+            app:destination="@id/editIngredientesFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addIngredientesFragment"
+        android:name="com.rsamqui.bakingbills.navigation.addIngredientsFragment"
+        android:label="fragment_add_ingredientes"
+        tools:layout="@layout/fragment_add_ingredientes" >
+        <action
+            android:id="@+id/add_ingredientes_to_ingredientes"
+            app:destination="@id/ingredientsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editIngredientesFragment"
+        android:name="com.rsamqui.bakingbills.navigation.editIngredientesFragment"
+        android:label="fragment_edit_ingredientes"
+        tools:layout="@layout/fragment_edit_ingredientes" >
+        <action
+            android:id="@+id/edit_ingredientes_to_ingredientes"
+            app:destination="@id/ingredientsFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/usersFragment"
+        android:name="com.rsamqui.bakingbills.navigation.UsuariosFragment"
+        android:label="UsuariosFragment" >
+        <action
+            android:id="@+id/usuarios_to_add_usuarios"
+            app:destination="@id/addUserFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/addUserFragment"
+        android:name="com.rsamqui.bakingbills.navigation.addUserFragment"
+        android:label="addUserFragment" >
+        <action
+            android:id="@+id/add_user_to_usuarios"
+            app:destination="@id/usersFragment" />
+    </fragment>
 </navigation>
