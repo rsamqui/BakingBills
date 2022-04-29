@@ -1,10 +1,11 @@
-package com.rsamqui.bakingbills
+package com.rsamqui.bakingbills.navigation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.rsamqui.bakingbills.R
 
 class HomeFragment : Fragment() {
 

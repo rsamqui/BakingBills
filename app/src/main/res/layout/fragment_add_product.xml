@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="navigation.addProductFragment"
+    android:background="@android:color/white"
+    android:orientation="vertical"
+    android:backgroundTint="#FFF3DC"
+    android:padding="16dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        tools:ignore="UselessParent">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/agregar_producto"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="monospace"/>
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="20dp"/>
+
+        <EditText
+            android:id="@+id/etNombre"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/tag"
+            android:drawablePadding="12dp"
+            android:hint="@string/nombre"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#68604A" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <EditText
+            android:id="@+id/etDescripcion"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/text"
+            android:drawablePadding="12dp"
+            android:hint="@string/descripcion"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#68604A" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <EditText
+            android:id="@+id/etPrecio"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/money"
+            android:drawablePadding="12dp"
+            android:hint="@string/Precio"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#68604A" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <EditText
+            android:id="@+id/etCantidad"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/quiantity"
+            android:drawablePadding="12dp"
+            android:hint="@string/Cantidad"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#68604A" />
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="16dp"/>
+
+        <EditText
+            android:id="@+id/etPeso"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/weight"
+            android:drawablePadding="12dp"
+            android:hint="@string/peso_gr"
+            android:inputType="text"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#68604A" />
+
+        <Space
+            android:layout_width="match_parent"
+            android:layout_height="200dp"/>
+
+        <LinearLayout
+
+            android:orientation="horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <Button
+                android:id="@+id/btnVolver"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_gravity="end"
+                android:backgroundTint="#4C4533"
+                android:text="@string/volver"
+                android:textColor="#CDC7B4" />
+
+            <Space
+                android:layout_width="135dp"
+                android:layout_height="match_parent"/>
+
+            <Button
+                android:id="@+id/btnAgregar"
+                android:layout_width="120dp"
+                android:layout_height="60dp"
+                android:layout_gravity="start"
+                android:backgroundTint="#4C4533"
+                android:text="@string/agregar"
+                android:textColor="#CDC7B4" />
+
+
+
+        </LinearLayout>
+
+
+
+
+    </LinearLayout>
+
+</FrameLayout>

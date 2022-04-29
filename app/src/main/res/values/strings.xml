@@ -12,4 +12,12 @@
     <string name="productos">Productos</string>
     <string name="usuarios">Usuarios</string>
     <string name="inventory_amp_budget_system"><![CDATA[Inventory & Budget System]]></string>
+    <string name="agregar_producto">Agregar Producto</string>
+    <string name="nombre">Nombre</string>
+    <string name="descripcion">Descripcion</string>
+    <string name="Precio">Precio</string>
+    <string name="peso_gr">Peso (Gr)</string>
+    <string name="Cantidad">Cantidad</string>
+    <string name="volver">Volver</string>
+    <string name="agregar">Agregar</string>
 </resources>
