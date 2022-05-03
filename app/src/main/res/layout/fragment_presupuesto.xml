@@ -33,6 +33,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
 
+    </LinearLayout>
+
     <com.google.android.material.floatingactionbutton.FloatingActionButton
         android:id="@+id/addBudget"
         android:layout_width="wrap_content"
@@ -43,6 +45,5 @@
         android:backgroundTint="#65604F"
         tools:ignore="ContentDescription,KeyboardInaccessibleWidget,
         RtlHardcoded" />
-    </LinearLayout>
 
 </FrameLayout>

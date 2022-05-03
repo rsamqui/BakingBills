@@ -33,4 +33,7 @@
     <string name="lista_de_usuarios">Lista de Usuarios</string>
     <string name="lista_de_productos">Lista de Productos</string>
     <string name="lista_de_presupuestos">Lista de Presupuestos</string>
+    <string name="editar">Editar</string>
+    <string name="id">ID</string>
+    <string name="editar_ingredientes">Editar Ingredientes</string>
 </resources>

@@ -33,16 +33,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:id="@+id/addUser"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|right"
-            android:clickable="true"
-            android:src="@drawable/add"
-            android:backgroundTint="#65604F"
-            tools:ignore="ContentDescription,KeyboardInaccessibleWidget,
-        RtlHardcoded" />
     </LinearLayout>
+
+    <com.google.android.material.floatingactionbutton.FloatingActionButton
+        android:id="@+id/addUser"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|right"
+        android:clickable="true"
+        android:src="@drawable/add"
+        android:backgroundTint="#65604F"
+        tools:ignore="ContentDescription,KeyboardInaccessibleWidget,
+        RtlHardcoded" />
 
 </FrameLayout>

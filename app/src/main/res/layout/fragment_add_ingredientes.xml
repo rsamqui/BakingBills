@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <FrameLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -10,39 +11,47 @@
     android:backgroundTint="#FFF3DC"
     android:padding="16dp">
 
-    <LinearLayout
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:orientation="vertical"
         tools:ignore="UselessParent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="sans-serif-smallcaps"
-        android:textAlignment="center"
-        android:text="@string/agregar_ingredientes"
-        android:textColor="@color/black"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        android:typeface="monospace"/>
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="@string/agregar_ingredientes"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            android:typeface="monospace"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
 
         <ImageView
+            android:id="@+id/imageView2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:src="@drawable/logo"
             android:layout_gravity="center"
+            android:layout_marginTop="25dp"
+            android:src="@drawable/logo"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.492"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/textView"
             tools:ignore="ContentDescription" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="50dp"/>
 
         <EditText
             android:id="@+id/etNombre"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
+            android:layout_marginTop="16dp"
             android:autofillHints=""
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/tag"
@@ -52,17 +61,18 @@
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
-            android:textColorHint="#68604A" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp"/>
+            android:textColorHint="#68604A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.551"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
         <EditText
             android:id="@+id/etCantidad"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
+            android:layout_marginTop="16dp"
             android:autofillHints=""
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/quiantity"
@@ -72,17 +82,18 @@
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
-            android:textColorHint="#68604A" />
-
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="16dp"/>
+            android:textColorHint="#68604A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etNombre" />
 
         <EditText
             android:id="@+id/etPrecio"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
+            android:layout_marginTop="16dp"
             android:autofillHints=""
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/money"
@@ -92,44 +103,40 @@
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
-            android:textColorHint="#68604A" />
-        
-        <Space
-            android:layout_width="match_parent"
-            android:layout_height="150dp"/>
-        
-        <LinearLayout
-
-            android:orientation="horizontal"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_gravity="bottom|center">
-
-            <Button
-                android:id="@+id/btnVolver"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
-                android:layout_gravity="end"
-                android:backgroundTint="#4C4533"
-                android:text="@string/volver"
-                android:textColor="#CDC7B4" />
-
-            <Space
-                android:layout_width="140dp"
-                android:layout_height="match_parent"/>
-
-            <Button
-                android:id="@+id/btnAgregar"
-                android:layout_width="120dp"
-                android:layout_height="60dp"
-                android:layout_gravity="start"
-                android:backgroundTint="#4C4533"
-                android:text="@string/agregar"
-                android:textColor="#CDC7B4" />
+            android:textColorHint="#68604A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etCantidad" />
 
 
+        <Button
+            android:id="@+id/btnAgregar"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_gravity="start"
+            android:layout_marginEnd="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#4C4533"
+            android:text="@string/agregar"
+            android:textColor="#CDC7B4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toEndOf="@+id/btnVolver" />
 
-        </LinearLayout>
+        <Button
+            android:id="@+id/btnVolver"
+            android:layout_width="120dp"
+            android:layout_height="60dp"
+            android:layout_gravity="end"
+            android:layout_marginStart="16dp"
+            android:layout_marginBottom="16dp"
+            android:backgroundTint="#4C4533"
+            android:text="@string/volver"
+            android:textColor="#CDC7B4"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    </LinearLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>
