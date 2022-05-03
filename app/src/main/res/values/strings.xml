@@ -36,4 +36,5 @@
     <string name="editar">Editar</string>
     <string name="id">ID</string>
     <string name="editar_ingredientes">Editar Ingredientes</string>
+    <string name="editar_producto">Editar producto</string>
 </resources>

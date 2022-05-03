@@ -25,6 +25,9 @@
         <action
             android:id="@+id/products_to_add_products"
             app:destination="@id/addProductFragment" />
+        <action
+            android:id="@+id/action_productsFragment_to_editProductoFragment"
+            app:destination="@id/editProductoFragment" />
     </fragment>
 
     <fragment
@@ -35,6 +38,16 @@
             android:id="@+id/add_products_to_products"
             app:destination="@id/productsFragment" />
     </fragment>
+
+    <fragment
+        android:id="@+id/editProductoFragment"
+        android:name="com.rsamqui.bakingbills.navigation.editProductoFragment"
+        android:label="editProductoFragment" >
+        <action
+            android:id="@+id/edit_products_to_products"
+            app:destination="@id/productsFragment" />
+    </fragment>
+
     <fragment
         android:id="@+id/ingredientsFragment"
         android:name="com.rsamqui.bakingbills.navigation.IngredientesFragment"
@@ -96,4 +109,5 @@
             android:id="@+id/add_budget_to_budget"
             app:destination="@id/budgetFragment" />
     </fragment>
+
 </navigation>

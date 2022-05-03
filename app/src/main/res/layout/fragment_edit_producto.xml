@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="@string/agregar_producto"
+            android:text="@string/editar_producto"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/black"
@@ -34,8 +34,8 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="294dp"
+            android:layout_height="137dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:src="@drawable/logo"
@@ -45,10 +45,31 @@
             tools:ignore="ContentDescription" />
 
         <EditText
+            android:id="@+id/etID"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:background="@drawable/custom_input"
+            android:drawableStart="@drawable/id"
+            android:drawablePadding="12dp"
+            android:hint="@string/id"
+            android:inputType="none"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#68604A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
+        <EditText
             android:id="@+id/etNombre"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
+            android:layout_marginTop="16dp"
             android:autofillHints=""
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/tag"
@@ -60,8 +81,9 @@
             android:textColor="@color/black"
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@+id/etID" />
 
         <EditText
             android:id="@+id/etDescripcion"
@@ -152,20 +174,20 @@
             android:backgroundTint="#4C4533"
             android:text="@string/volver"
             android:textColor="#CDC7B4"
-            app:layout_constraintEnd_toStartOf="@+id/btnAgregar"
+            app:layout_constraintEnd_toStartOf="@+id/btnEdit"
             app:layout_constraintHorizontal_bias="0.13"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPeso" />
 
         <Button
-            android:id="@+id/btnAgregar"
+            android:id="@+id/btnEdit"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="start"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="12dp"
             android:backgroundTint="#4C4533"
-            android:text="@string/agregar"
+            android:text="@string/editar"
             android:textColor="#CDC7B4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPeso" />
