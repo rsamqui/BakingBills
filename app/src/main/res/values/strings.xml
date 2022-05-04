@@ -37,4 +37,6 @@
     <string name="id">ID</string>
     <string name="editar_ingredientes">Editar Ingredientes</string>
     <string name="editar_producto">Editar producto</string>
+    <string name="eliminar_ingredientes">Eliminar ingrediente</string>
+    <string name="delete">Elminar</string>
 </resources>
