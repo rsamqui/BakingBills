@@ -16,7 +16,7 @@ class IngredienteViewModels(application:
     private val repository: IngredienteRepository
     init {
         val ingredienteDao =
-            BDPanaderia.getDataBase(application).ingredienteDao()
+            BDPanaderia.getInstance(application).ingredienteDao()
         repository = IngredienteRepository(ingredienteDao)
         lista = repository.listado
     }

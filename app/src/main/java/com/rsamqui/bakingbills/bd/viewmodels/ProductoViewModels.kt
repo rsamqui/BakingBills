@@ -16,7 +16,7 @@ class ProductoViewModels(application:
     private val repository: ProductoRepository
     init {
         val productoDao =
-            BDPanaderia.getDataBase(application).productoDao()
+            BDPanaderia.getInstance(application).productoDao()
         repository = ProductoRepository(productoDao)
         lista = repository.listado
     }

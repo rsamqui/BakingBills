@@ -16,7 +16,7 @@ class UsuarioViewModels(application:
     private val repository: UsuarioRepository
     init {
         val usuarioDao =
-            BDPanaderia.getDataBase(application).usuarioDao()
+            BDPanaderia.getInstance(application).usuarioDao()
         repository = UsuarioRepository(usuarioDao)
         lista = repository.listado
     }

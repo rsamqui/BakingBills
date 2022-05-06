@@ -8,7 +8,7 @@ class ProductoRepository(private val dao: ProductoDao) {
     val listado: LiveData<List<ProductoEntity>> =
         dao.getAllRealData()
 
-    suspend fun addProducto(producto: ProductoEntity) {
+    suspend fun addProducto(producto: ProductoEntity){
         dao.insert(producto)
     }
 

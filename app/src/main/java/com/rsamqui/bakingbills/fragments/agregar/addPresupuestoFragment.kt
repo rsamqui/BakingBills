@@ -29,7 +29,13 @@ class addPresupuestoFragment : Fragment() {
             findNavController().navigate(R.id.add_budget_to_budget)
         }
 
+        binding.btnAgregar.setOnClickListener{
+            guardarPresupuesto()
+        }
         return binding.root
+    }
+
+    private fun guardarPresupuesto() {
     }
 
 
