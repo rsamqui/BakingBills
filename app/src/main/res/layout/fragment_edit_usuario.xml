@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="navigation.addUserFragment"
+    tools:context=".navigation.editUsuarioFragment"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:backgroundTint="#FFF3DC"
@@ -22,7 +22,7 @@
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
-            android:text="@string/agregar_nuevo_usuario"
+            android:text="Editar Usuario"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/black"
             android:textSize="24sp"
@@ -125,7 +125,7 @@
             tools:ignore="TextFields" />
 
         <EditText
-            android:id="@+id/etContraseña"
+            android:id="@+id/etPwd"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -155,19 +155,19 @@
             android:text="@string/volver"
             android:textColor="#CDC7B4"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toStartOf="@+id/btnAgregar"
+            app:layout_constraintEnd_toStartOf="@+id/btnActualizar"
             app:layout_constraintHorizontal_bias="0.125"
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btnAgregar"
+            android:id="@+id/btnActualizar"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="start"
             android:layout_marginEnd="12dp"
             android:layout_marginBottom="16dp"
             android:backgroundTint="#4C4533"
-            android:text="@string/agregar"
+            android:text="Editar"
             android:textColor="#CDC7B4"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />

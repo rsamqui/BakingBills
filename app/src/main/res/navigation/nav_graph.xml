@@ -84,6 +84,9 @@
         <action
             android:id="@+id/usuarios_to_add_usuarios"
             app:destination="@id/addUserFragment" />
+        <action
+            android:id="@+id/usuario_to_edit_usuario"
+            app:destination="@id/editUsuarioFragment" />
     </fragment>
     <fragment
         android:id="@+id/addUserFragment"
@@ -108,6 +111,18 @@
         <action
             android:id="@+id/add_budget_to_budget"
             app:destination="@id/budgetFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/editUsuarioFragment"
+        android:name="com.rsamqui.bakingbills.navigation.editUsuarioFragment"
+        android:label="fragment_edit_usuario"
+        tools:layout="@layout/fragment_edit_usuario" >
+        <action
+            android:id="@+id/edit_usuarios_to_usuarios"
+            app:destination="@id/usersFragment" />
+        <argument
+            android:name="currentUsuario"
+            app:argType="com.rsamqui.bakingbills.bd.entidades.UsuarioEntity" />
     </fragment>
 
 </navigation>

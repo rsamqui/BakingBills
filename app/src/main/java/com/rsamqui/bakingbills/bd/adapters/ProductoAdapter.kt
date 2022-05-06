@@ -34,7 +34,7 @@ class ProductoAdapter (val productoLista: List<ProductoItem>): RecyclerView.Adap
     class ProductoHolder(itemView: View) : RecyclerView.ViewHolder(itemView){
         val tvNombre: TextView = itemView.findViewById(R.id.tvNombre)
         val tvId: TextView = itemView.findViewById(R.id.tvId)
-        val tvDescripcion: TextView = itemView.findViewById(R.id.tvDescripcion)
+        val tvDescripcion: TextView = itemView.findViewById(R.id.tvNombres)
         val tvPrecio: TextView = itemView.findViewById(R.id.tvPrecio)
         val tvPeso: TextView = itemView.findViewById(R.id.tvPeso)
     }
