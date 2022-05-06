@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.adapters.ProductoAdapter.*
-import com.rsamqui.bakingbills.models.ProductoItem
+import com.rsamqui.bakingbills.bd.entidades.ProductoItem
 
 class ProductoAdapter (val productoLista: List<ProductoItem>): RecyclerView.Adapter<ProductoHolder>() {
 
@@ -15,18 +15,13 @@ class ProductoAdapter (val productoLista: List<ProductoItem>): RecyclerView.Adap
         parent: ViewGroup,
         viewType: Int
     ): ProductoHolder {
-        var view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_producto,
-            null,false)
+        var view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_producto, null, false)
         return ProductoHolder(view)
     }
 
     override fun onBindViewHolder(holder: ProductoHolder, position: Int) {
         val current = productoLista[position]
-        holder.tvNombre.text = current.nombre
-        holder.tvId.text = current.idProducto.toString()
-        holder.tvDescripcion.text = current.descripcion
-        holder.tvPrecio.text = current.precio.toString()
-        holder.tvPeso.text = current.peso.toString()
+        holder.
     }
 
     override fun getItemCount(): Int = productoLista.size

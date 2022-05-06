@@ -26,7 +26,7 @@ abstract class BDPanaderia : RoomDatabase(), MainDataBaseProvider {
     companion object {
         @Volatile
         private var INSTANCE: BDPanaderia? = null
-        fun getDataBase(context: Context): BDPanaderia {
+        fun getInstance(context: Context): BDPanaderia {
             synchronized(this) {
                 var instance = INSTANCE
                 if (instance == null) {

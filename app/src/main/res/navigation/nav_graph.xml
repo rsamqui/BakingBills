@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/addProductFragment"
-        android:name="com.rsamqui.bakingbills.navigation.addProductFragment"
+        android:name="com.rsamqui.bakingbills.navigation.AddProductFragment"
         android:label="addProductFragment" >
         <action
             android:id="@+id/add_products_to_products"

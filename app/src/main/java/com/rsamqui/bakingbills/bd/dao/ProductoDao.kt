@@ -8,7 +8,7 @@ import com.rsamqui.bakingbills.bd.entidades.ProductoEntity
 interface ProductoDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(producto: ProductoEntity)
+    suspend fun insertProduct(producto: ProductoEntity)
 
     @Query("SELECT * FROM Producto")
     suspend fun getAll(): List<ProductoEntity>

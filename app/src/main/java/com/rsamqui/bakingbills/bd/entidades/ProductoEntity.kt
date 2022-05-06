@@ -16,7 +16,7 @@ data class ProductoEntity(
     @ColumnInfo(name = "descripcion")
     val descripcion: String,
     @ColumnInfo(name = "cantidad")
-    val cantidad: Int,
+    val cantidad: Double,
     @ColumnInfo(name = "precio")
     val precio: Double,
     @ColumnInfo(name = "peso")
