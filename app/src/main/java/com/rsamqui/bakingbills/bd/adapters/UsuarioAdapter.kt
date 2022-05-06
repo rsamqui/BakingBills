@@ -4,7 +4,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.rsamqui.bakingbills.bd.entidades.UsuarioEntity
 import com.rsamqui.bakingbills.databinding.ItemUsuarioBinding
-import com.rsamqui.bakingbills.navigation.UsuariosFragmentDirections
+import com.rsamqui.bakingbills.fragments.lista.UsuariosFragmentDirections
 
 class UsuarioAdapter :
     RecyclerView.Adapter<UsuarioAdapter.UsuarioHolder>() {

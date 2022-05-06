@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.navigation
+package com.rsamqui.bakingbills.fragments.agregar
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -25,14 +25,16 @@ class addUserFragment : Fragment() {
             FragmentAddUsuarioBinding.inflate(layoutInflater)
         viewModel =
             ViewModelProvider(this).get(UsuarioViewModels::class.java)
+        
+        fBinding.btnVolver.setOnClickListener{
+            findNavController().navigate(R.id.add_user_to_usuarios)
+        }
         fBinding.btnAgregar.setOnClickListener {
             guardarRegistro()
         }
         return fBinding.root
 
-        fBinding.btnVolver.setOnClickListener{
-            findNavController().navigate(R.id.add_user_to_usuarios)
-        }
+
     }
     private fun guardarRegistro() {
         //val baseDatos = MainBaseDatos.getDataBase(this)

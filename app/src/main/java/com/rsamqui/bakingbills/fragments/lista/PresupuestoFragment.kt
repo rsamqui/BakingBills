@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.navigation
+package com.rsamqui.bakingbills.fragments.lista
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,26 +7,25 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.rsamqui.bakingbills.R
-import com.rsamqui.bakingbills.databinding.FragmentAddPresupuestoBinding
 import com.rsamqui.bakingbills.databinding.FragmentPresupuestoBinding
 
-class addPresupuestoFragment : Fragment() {
+class PresupuestoFragment : Fragment() {
 
-    private var _binding: FragmentAddPresupuestoBinding? = null
-    private val binding: FragmentAddPresupuestoBinding get() = _binding!!
+    private var _binding: FragmentPresupuestoBinding? = null
+    private val binding: FragmentPresupuestoBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAddPresupuestoBinding.inflate(
+        _binding = FragmentPresupuestoBinding.inflate(
             inflater,
             container,
             false
         )
 
-        binding.btnVolver.setOnClickListener{
-            findNavController().navigate(R.id.add_budget_to_budget)
+        binding.addBudget.setOnClickListener{
+            findNavController().navigate(R.id.budget_to_add_budget)
         }
 
         return binding.root

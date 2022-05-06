@@ -20,7 +20,7 @@
         tools:layout="@layout/fragment_home" />
     <fragment
         android:id="@+id/productsFragment"
-        android:name="com.rsamqui.bakingbills.navigation.ProductosFragment"
+        android:name="com.rsamqui.bakingbills.fragments.lista.ProductosFragment"
         android:label="ProductosFragment" >
         <action
             android:id="@+id/products_to_add_products"
@@ -32,7 +32,7 @@
 
     <fragment
         android:id="@+id/addProductFragment"
-        android:name="com.rsamqui.bakingbills.navigation.addProductFragment"
+        android:name="com.rsamqui.bakingbills.fragments.agregar.addProductFragment"
         android:label="addProductFragment" >
         <action
             android:id="@+id/add_products_to_products"
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/editProductoFragment"
-        android:name="com.rsamqui.bakingbills.navigation.editProductoFragment"
+        android:name="com.rsamqui.bakingbills.fragments.editar.editProductoFragment"
         android:label="editProductoFragment" >
         <action
             android:id="@+id/edit_products_to_products"
@@ -50,7 +50,7 @@
 
     <fragment
         android:id="@+id/ingredientsFragment"
-        android:name="com.rsamqui.bakingbills.navigation.IngredientesFragment"
+        android:name="com.rsamqui.bakingbills.fragments.lista.IngredientesFragment"
         android:label="IngredientesFragment" >
         <action
             android:id="@+id/ingredientes_to_add_ingredientes"
@@ -61,7 +61,7 @@
     </fragment>
     <fragment
         android:id="@+id/addIngredientesFragment"
-        android:name="com.rsamqui.bakingbills.navigation.addIngredientsFragment"
+        android:name="com.rsamqui.bakingbills.fragments.agregar.addIngredientsFragment"
         android:label="fragment_add_ingredientes"
         tools:layout="@layout/fragment_add_ingredientes" >
         <action
@@ -70,7 +70,7 @@
     </fragment>
     <fragment
         android:id="@+id/editIngredientesFragment"
-        android:name="com.rsamqui.bakingbills.navigation.editIngredientesFragment"
+        android:name="com.rsamqui.bakingbills.fragments.editar.editIngredientesFragment"
         android:label="fragment_edit_ingredientes"
         tools:layout="@layout/fragment_edit_ingredientes" >
         <action
@@ -79,7 +79,7 @@
     </fragment>
     <fragment
         android:id="@+id/usersFragment"
-        android:name="com.rsamqui.bakingbills.navigation.UsuariosFragment"
+        android:name="com.rsamqui.bakingbills.fragments.lista.UsuariosFragment"
         android:label="UsuariosFragment" >
         <action
             android:id="@+id/usuarios_to_add_usuarios"
@@ -90,7 +90,7 @@
     </fragment>
     <fragment
         android:id="@+id/addUserFragment"
-        android:name="com.rsamqui.bakingbills.navigation.addUserFragment"
+        android:name="com.rsamqui.bakingbills.fragments.agregar.addUserFragment"
         android:label="addUserFragment" >
         <action
             android:id="@+id/add_user_to_usuarios"
@@ -98,7 +98,7 @@
     </fragment>
     <fragment
         android:id="@+id/budgetFragment"
-        android:name="com.rsamqui.bakingbills.navigation.PresupuestoFragment"
+        android:name="com.rsamqui.bakingbills.fragments.lista.PresupuestoFragment"
         android:label="PresupuestoFragment" >
         <action
             android:id="@+id/budget_to_add_budget"
@@ -106,7 +106,7 @@
     </fragment>
     <fragment
         android:id="@+id/addPresupuestoFragment"
-        android:name="com.rsamqui.bakingbills.navigation.addPresupuestoFragment"
+        android:name="com.rsamqui.bakingbills.fragments.agregar.addPresupuestoFragment"
         android:label="addPresupuestoFragment" >
         <action
             android:id="@+id/add_budget_to_budget"
@@ -114,7 +114,7 @@
     </fragment>
     <fragment
         android:id="@+id/editUsuarioFragment"
-        android:name="com.rsamqui.bakingbills.navigation.editUsuarioFragment"
+        android:name="com.rsamqui.bakingbills.fragments.editar.editUsuarioFragment"
         android:label="fragment_edit_usuario"
         tools:layout="@layout/fragment_edit_usuario" >
         <action

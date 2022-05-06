@@ -1,15 +1,12 @@
-package com.rsamqui.bakingbills.navigation
+package com.rsamqui.bakingbills.fragments.lista
 
 import UsuarioAdapter
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
-import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
-import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.viewmodels.UsuarioViewModels

@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.navigation
+package com.rsamqui.bakingbills.fragments.lista
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
