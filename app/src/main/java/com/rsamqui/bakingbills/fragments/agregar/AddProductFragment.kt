@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.navigation
+package com.rsamqui.bakingbills.fragments.agregar
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -9,12 +9,32 @@ import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.dao.BDPanaderia
-import com.rsamqui.bakingbills.bd.dao.ProductoDao
-import com.rsamqui.bakingbills.bd.entidades.ProductoEntity
 import com.rsamqui.bakingbills.databinding.FragmentAddProductBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+
+class addProductFragment : Fragment() {
+
+    private var _binding: FragmentAddProductBinding? = null
+    private val binding: FragmentAddProductBinding get() = _binding!!
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        _binding = FragmentAddProductBinding.inflate(
+            inflater,
+            container,
+            false
+        )
+
+        binding.btnVolver.setOnClickListener{
+            findNavController().navigate(R.id.add_products_to_products)
+        }
+        return binding.root
+    }
+}
 
 class AddProductFragment : Fragment() {
 
@@ -67,4 +87,3 @@ class AddProductFragment : Fragment() {
     }
 
 }
-

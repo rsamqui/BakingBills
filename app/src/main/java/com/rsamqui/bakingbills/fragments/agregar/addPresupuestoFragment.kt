@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.navigation
+package com.rsamqui.bakingbills.fragments.agregar
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -7,27 +7,30 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.rsamqui.bakingbills.R
-import com.rsamqui.bakingbills.databinding.FragmentAddUserBinding
+import com.rsamqui.bakingbills.databinding.FragmentAddPresupuestoBinding
+import com.rsamqui.bakingbills.databinding.FragmentPresupuestoBinding
 
-class addUserFragment : Fragment() {
+class addPresupuestoFragment : Fragment() {
 
-    private var _binding: FragmentAddUserBinding? = null
-    private val binding : FragmentAddUserBinding get() = _binding!!
+    private var _binding: FragmentAddPresupuestoBinding? = null
+    private val binding: FragmentAddPresupuestoBinding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentAddUserBinding.inflate(
+        _binding = FragmentAddPresupuestoBinding.inflate(
             inflater,
             container,
             false
         )
 
         binding.btnVolver.setOnClickListener{
-            findNavController().navigate(R.id.add_user_to_usuarios)
+            findNavController().navigate(R.id.add_budget_to_budget)
         }
 
         return binding.root
     }
+
+
 }

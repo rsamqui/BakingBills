@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="navigation.addUserFragment"
+    tools:context=".fragments.agregar.addUserFragment"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:backgroundTint="#FFF3DC"
@@ -125,7 +125,7 @@
             tools:ignore="TextFields" />
 
         <EditText
-            android:id="@+id/etContraseña"
+            android:id="@+id/etPwd"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
