@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.navigation
+/*package com.rsamqui.bakingbills.navigation
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -17,4 +17,4 @@ class deleteProductFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_delete_product, container, false)
     }
 
-}
+}*/
