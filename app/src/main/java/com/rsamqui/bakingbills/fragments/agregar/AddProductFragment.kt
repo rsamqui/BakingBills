@@ -44,7 +44,7 @@ class AddProductFragment : Fragment() {
 
     private fun guardarProducto() {
         val nombre = fBinding.etNombre.text.toString()
-        val descripcion = fBinding.etDescripcion.toString()
+        val descripcion = fBinding.etDescripcion.text.toString()
         val cantidad = fBinding.etCantidad.text.toString().toDouble()
         val precio = fBinding.etPrecio.text.toString().toDouble()
         val peso = fBinding.etPeso.text.toString().toDouble()
