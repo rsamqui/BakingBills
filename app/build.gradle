@@ -1,12 +1,12 @@
-plugins {
-    id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
-    id "kotlin-kapt"
-}
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: "androidx.navigation.safeargs.kotlin"
 
 android {
     compileSdk 32
-
+    buildToolsVersion "30.0.3"
     defaultConfig {
         applicationId "com.rsamqui.bakingbills"
         minSdk 21
@@ -28,7 +28,7 @@ android {
         targetCompatibility JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = '1.8'
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
     }
     buildFeatures{
         viewBinding true
@@ -45,7 +45,8 @@ dependencies {
         recyclerview_selection_version = "1.1.0", coroutines_version = "1.6.1", lottieVersion = "3.4.0",
         rounded_images = "3.1.0"
 
-
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'androidx.core:core-ktx:1.7.0'
     implementation 'androidx.appcompat:appcompat:1.4.1'
     implementation 'com.google.android.material:material:1.5.0'
@@ -88,4 +89,7 @@ dependencies {
 
     //Rounded ImageView
     implementation "de.hdodenhof:circleimageview:$rounded_images"
+
+    //DataBinding
+    kapt "com.android.databinding:compiler:3.2.0-alpha10"
 }
