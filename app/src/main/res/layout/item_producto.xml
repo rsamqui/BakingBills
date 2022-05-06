@@ -5,7 +5,7 @@
     android:orientation="horizontal" >
 
     <TextView
-        android:id="@+id/txtNombre"
+        android:id="@+id/tvNombre"
         android:layout_width="230dp"
         android:layout_height="150dp"
         android:text="Galletas de Chocoloate"
@@ -17,28 +17,28 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
         <TextView
-            android:id="@+id/txtId"
+            android:id="@+id/tvId"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="32sp"
             android:text="1"
             android:textAlignment="center"/>
         <TextView
-            android:id="@+id/txtDescripcion"
+            android:id="@+id/tvDescripcion"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="Galletas con Chispas"
             />
         <TextView
-            android:id="@+id/TxtPrecio"
+            android:id="@+id/tvPrecio"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
             android:text="C$ 20"
             />
         <TextView
-            android:id="@+id/txtPeso"
+            android:id="@+id/tvPeso"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textSize="20sp"
