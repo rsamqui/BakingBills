@@ -16,8 +16,6 @@ data class IngredienteEntity(
     @ColumnInfo(name = "cantidad")
     val cantidad: Int,
     @ColumnInfo(name = "precio")
-    val precio: Double,
-    @ColumnInfo(name = "activo")
-    val activo: Boolean
+    val precio: Int,
 
 ): Parcelable

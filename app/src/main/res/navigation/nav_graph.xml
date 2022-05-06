@@ -76,6 +76,9 @@
         <action
             android:id="@+id/edit_ingredientes_to_ingredientes"
             app:destination="@id/ingredientsFragment" />
+        <argument
+            android:name="currentIngrediente"
+            app:argType="com.rsamqui.bakingbills.bd.entidades.IngredienteEntity" />
     </fragment>
     <fragment
         android:id="@+id/usersFragment"
