@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <style name="BakingBills" parent="Theme.AppCompat.Light.NoActionBar">
+    </style>
+
+    <style name="FabStyle">
+
+        <item name="cornerSize">30%</item>
+        <item name="cornerFamily">cut</item>
+
+    </style>
+
+    <style name="FabStyle2">
+
+        <item name="cornerSize">30%</item>
+        <item name="cornerFamily">cut</item>
 
     </style>
 
