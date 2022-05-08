@@ -7,6 +7,6 @@
         android:title="Eliminar"
         android:icon="@drawable/delete"
         android:iconTint="@color/white"
-        app:showAsAction="collapseActionView"
+        app:showAsAction="ifRoom"
         />
 </menu>

@@ -29,7 +29,7 @@ class addIngredientsFragment : Fragment() {
     private fun guardarRegistro() {
         val name = fBinding.etNombre.text.toString()
         val quantity = fBinding.etCantidad.text.toString().toInt()
-        val price = fBinding.etPrecio.text.toString().toInt()
+        val price = fBinding.etPrecio.text.toString().toDouble()
         val ingrediente = IngredienteEntity(0, name, quantity, price)
         viewModel.agregarIngrediente(ingrediente)
         Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()

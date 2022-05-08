@@ -3,7 +3,6 @@ package com.rsamqui.bakingbills.navigation
 import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
-import android.widget.TextView
 import androidx.fragment.app.Fragment
 import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
@@ -25,7 +24,7 @@ class editIngredientesFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(IngredienteViewModels::class.java)
         with(fBinding) { etNombre.setText(args.currentIngrediente.nombre)
             etCantidad.setText(args.currentIngrediente.cantidad)
-            etPrecio.setText(args.currentIngrediente.precio)
+            etPrecio.setText(args.currentIngrediente.precio.toString())
             btnEditar.setOnClickListener {
                 GuardarCambios()
             }
@@ -37,7 +36,7 @@ class editIngredientesFragment : Fragment() {
     private fun GuardarCambios() {
         val name = fBinding.etNombre.text.toString()
         val quantity = fBinding.etCantidad.text.toString().toInt()
-        val price = fBinding.etPrecio.text.toString().toInt()
+        val price = fBinding.etPrecio.text.toString().toDouble()
         val ingrediente = IngredienteEntity(args.currentIngrediente.idIngrediente, name, quantity, price)
         viewModel.actualizarIngrediente(ingrediente)
         Toast.makeText(requireContext(), "Ingrediente actualizado", Toast.LENGTH_LONG).show()
