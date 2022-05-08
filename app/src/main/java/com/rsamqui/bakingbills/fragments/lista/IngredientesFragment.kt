@@ -48,28 +48,4 @@ class IngredientesFragment : Fragment() {
             }
         }
     }
-
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.delete_menu, menu)
-    }
-
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        if (item.itemId == R.id.mnuEliminar) {
-            eliminarTodo()
-        }
-        return super.onOptionsItemSelected(item)
-    }
-
-    private fun eliminarTodo() {
-        val alerta = AlertDialog.Builder(requireContext())
-        alerta.setPositiveButton("Si") {
-                _, _ -> viewModel.eliminarTodo()
-            Toast.makeText( requireContext(), "Registros eliminados satisfactoriamente...", Toast.LENGTH_LONG ).show()
-        }
-        alerta.setNegativeButton("No") { _, _ -> Toast.makeText( requireContext(), "Operación cancelada...", Toast.LENGTH_LONG ).show()
-        }
-        alerta.setTitle("Eliminando todos los registro")
-        alerta.setMessage("¿Esta seguro de eliminar los registros?")
-        alerta.create().show()
-    }
 }

@@ -13,7 +13,7 @@ import com.rsamqui.bakingbills.bd.entidades.ProductoEntity
 import com.rsamqui.bakingbills.bd.viewmodels.ProductoViewModels
 import com.rsamqui.bakingbills.databinding.FragmentEditProductoBinding
 
-class editProductoFragment : Fragment() {
+class EditProductFragment : Fragment() {
 
     lateinit var fBinding: FragmentEditProductoBinding
     private val args by navArgs<editProductoFragmentArgs>()
@@ -32,8 +32,8 @@ class editProductoFragment : Fragment() {
         with(fBinding) {
 
             tvID.setText(args.currentProduct.idProducto.toString())
-            etNombre.setText(args.currentProduct.nombre)
-            etDescripcion.setText(args.currentProduct.descripcion)
+            etIngrediente.setText(args.currentProduct.nombre)
+            etUnidades.setText(args.currentProduct.descripcion)
             etCantidad.setText(args.currentProduct.cantidad.toString())
             etPrecio.setText(args.currentProduct.precio.toString())
             etPeso.setText(args.currentProduct.peso.toString())
@@ -51,8 +51,8 @@ class editProductoFragment : Fragment() {
     }
 
     private fun updateProduct() {
-        val nombre = fBinding.etNombre.text.toString()
-        val descripcion = fBinding.etDescripcion.text.toString()
+        val nombre = fBinding.etIngrediente.text.toString()
+        val descripcion = fBinding.etUnidades.text.toString()
         val cantidad = fBinding.etCantidad.text.toString()
         val precio = fBinding.etPrecio.text.toString()
         val peso = fBinding.etPeso.text.toString()

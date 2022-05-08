@@ -23,7 +23,7 @@ class editIngredientesFragment : Fragment() {
         fBinding = FragmentEditIngredientesBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this).get(IngredienteViewModels::class.java)
         with(fBinding) { etIngrediente.setText(args.currentIngrediente.nombre)
-            etCantidad.setText(args.currentIngrediente.cantidad)
+            etCantidad.setText(args.currentIngrediente.cantidad.toString())
             etPrecio.setText(args.currentIngrediente.precio.toString())
             btnEditar.setOnClickListener {
                 GuardarCambios()
@@ -35,16 +35,27 @@ class editIngredientesFragment : Fragment() {
 
     private fun GuardarCambios() {
         val name = fBinding.etIngrediente.text.toString()
-        val quantity = fBinding.etCantidad.text.toString().toInt()
-        val price = fBinding.etPrecio.text.toString().toDouble()
-        val ingrediente = IngredienteEntity(args.currentIngrediente.idIngrediente, name, quantity, price)
-        viewModel.actualizarIngrediente(ingrediente)
-        Toast.makeText(requireContext(), "Ingrediente actualizado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.edit_ingredientes_to_ingredientes)
+        val quantity = fBinding.etCantidad.text.toString()
+        val price = fBinding.etPrecio.text.toString()
+
+        if(name.isNotEmpty() && quantity.isNotEmpty() && price.isNotEmpty())
+        {
+            val ingrediente = IngredienteEntity(args.currentIngrediente.idIngrediente,
+                name, quantity.toDouble(), price.toDouble(),)
+
+            viewModel.actualizarIngrediente(ingrediente)
+            Toast.makeText(requireContext(), "Registro actualizado",
+                Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.edit_ingredientes_to_ingredientes)
+        }
+        else
+        {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
-        inflater.inflate(R.menu.delete_menu, menu)
+        inflater.inflate(R.menu.menuopcion, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {

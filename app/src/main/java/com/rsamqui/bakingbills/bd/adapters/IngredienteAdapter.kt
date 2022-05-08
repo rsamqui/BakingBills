@@ -5,15 +5,15 @@ import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
-import com.rsamqui.bakingbills.databinding.FragmentItemIngredienteBinding
-import com.rsamqui.bakingbills.navigation.IngredientesFragmentDirections
+import com.rsamqui.bakingbills.databinding.ItemIngredienteBinding
+import com.rsamqui.bakingbills.fragments.lista.IngredientesFragmentDirections
 
 class IngredienteAdapter : RecyclerView.Adapter<IngredienteAdapter.IngredienteHolder>() {
 
     private var listadoIngrediente = emptyList<IngredienteEntity>()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): IngredienteHolder {
-        val binding = FragmentItemIngredienteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
+        val binding = ItemIngredienteBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return IngredienteHolder(binding)
     }
 
@@ -28,7 +28,7 @@ class IngredienteAdapter : RecyclerView.Adapter<IngredienteAdapter.IngredienteHo
         notifyDataSetChanged()
     }
 
-    inner class IngredienteHolder(val binding: FragmentItemIngredienteBinding) : RecyclerView.ViewHolder(binding.root) {
+    inner class IngredienteHolder(val binding: ItemIngredienteBinding) : RecyclerView.ViewHolder(binding.root) {
         fun bind(ingrediente: IngredienteEntity) {
             with(binding)
             {
@@ -38,7 +38,7 @@ class IngredienteAdapter : RecyclerView.Adapter<IngredienteAdapter.IngredienteHo
                 TvPrecio.text = ingrediente.precio.toString()
 
                 IngredienteCV.setOnClickListener {
-                    val action = IngredientesFragmentDirections.ingredientesToAddIngredientes()
+                    val action = IngredientesFragmentDirections.ingredientesToEditIngredientes(ingrediente)
                     it.findNavController().navigate(action)
                 }
             }
