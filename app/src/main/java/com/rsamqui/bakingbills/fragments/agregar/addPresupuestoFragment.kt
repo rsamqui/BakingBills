@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.navigation
+package com.rsamqui.bakingbills.fragments.agregar
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -29,7 +29,13 @@ class addPresupuestoFragment : Fragment() {
             findNavController().navigate(R.id.add_budget_to_budget)
         }
 
+        binding.btnAgregar.setOnClickListener{
+            guardarPresupuesto()
+        }
         return binding.root
+    }
+
+    private fun guardarPresupuesto() {
     }
 
 

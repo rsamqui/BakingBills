@@ -9,7 +9,7 @@
     android:background="@android:color/white"
     android:backgroundTint="#FFF3DC"
     android:padding="16dp"
-    tools:context=".navigation.IngredientesFragment">
+    tools:context=".fragments.lista.IngredientesFragment">
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/RcvIngrediente"

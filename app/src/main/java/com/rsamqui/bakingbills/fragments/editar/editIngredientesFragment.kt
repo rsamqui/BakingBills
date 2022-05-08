@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.navigation
+package com.rsamqui.bakingbills.fragments.editar
 
 import android.app.AlertDialog
 import android.os.Bundle
@@ -22,7 +22,7 @@ class editIngredientesFragment : Fragment() {
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         fBinding = FragmentEditIngredientesBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this).get(IngredienteViewModels::class.java)
-        with(fBinding) { etNombre.setText(args.currentIngrediente.nombre)
+        with(fBinding) { etIngrediente.setText(args.currentIngrediente.nombre)
             etCantidad.setText(args.currentIngrediente.cantidad)
             etPrecio.setText(args.currentIngrediente.precio.toString())
             btnEditar.setOnClickListener {
@@ -34,7 +34,7 @@ class editIngredientesFragment : Fragment() {
     }
 
     private fun GuardarCambios() {
-        val name = fBinding.etNombre.text.toString()
+        val name = fBinding.etIngrediente.text.toString()
         val quantity = fBinding.etCantidad.text.toString().toInt()
         val price = fBinding.etPrecio.text.toString().toDouble()
         val ingrediente = IngredienteEntity(args.currentIngrediente.idIngrediente, name, quantity, price)

@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="navigation.addProductFragment"
+    tools:context="fragments.agregar.AddProductFragment"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:backgroundTint="#FFF3DC"
@@ -45,7 +45,7 @@
             tools:ignore="ContentDescription" />
 
         <EditText
-            android:id="@+id/etNombre"
+            android:id="@+id/etIngrediente"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -64,7 +64,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <EditText
-            android:id="@+id/etDescripcion"
+            android:id="@+id/etUnidades"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -81,7 +81,7 @@
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+            app:layout_constraintTop_toBottomOf="@+id/etIngrediente" />
 
         <EditText
             android:id="@+id/etPrecio"
@@ -121,7 +121,7 @@
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etDescripcion" />
+            app:layout_constraintTop_toBottomOf="@+id/etUnidades" />
 
         <EditText
             android:id="@+id/etPeso"

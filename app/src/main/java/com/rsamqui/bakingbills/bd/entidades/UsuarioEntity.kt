@@ -11,7 +11,7 @@ import kotlinx.android.parcel.Parcelize
 data class UsuarioEntity(
     @PrimaryKey(autoGenerate = true)
     val idUsuario:Int = 0,
-    @ColumnInfo(name = "nombres")
+    @ColumnInfo(name = "usuario")
     val nombres: String,
     @ColumnInfo(name = "apellidos")
     val apellidos: String,

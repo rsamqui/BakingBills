@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.navigation
+package com.rsamqui.bakingbills.fragments.agregar
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -27,7 +27,7 @@ class addIngredientsFragment : Fragment() {
     }
 
     private fun guardarRegistro() {
-        val name = fBinding.etNombre.text.toString()
+        val name = fBinding.etIngrediente.text.toString()
         val quantity = fBinding.etCantidad.text.toString().toInt()
         val price = fBinding.etPrecio.text.toString().toDouble()
         val ingrediente = IngredienteEntity(0, name, quantity, price)

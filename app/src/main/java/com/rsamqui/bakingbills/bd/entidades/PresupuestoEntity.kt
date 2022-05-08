@@ -7,21 +7,20 @@ import androidx.room.PrimaryKey
 import kotlinx.android.parcel.Parcelize
 
 @Parcelize
-@Entity(tableName="Producto")
-data class ProductoEntity(
+@Entity(tableName = "Presupuesto")
+data class PresupuestoEntity(
     @PrimaryKey(autoGenerate = true)
-    val idProducto:Int = 0,
-    @ColumnInfo(name = "nombre")
-    val nombre: String,
-    @ColumnInfo(name = "descripcion")
-    val descripcion: String,
-    @ColumnInfo(name = "cantidad")
-    val cantidad: Double,
+    val idPresupuesto: Int = 0,
+    @ColumnInfo(name = "ingrediente")
+    val ingrediente: String,
+    @ColumnInfo(name = "unidades")
+    val unidades: Double,
+    @ColumnInfo(name = "medida")
+    val medida: Double,
     @ColumnInfo(name = "precio")
     val precio: Double,
-    @ColumnInfo(name = "peso")
-    val peso: Double,
+    @ColumnInfo(name = "total")
+    val total: Double,
     @ColumnInfo(name = "activo")
     val activo: Boolean
-
-): Parcelable
+) : Parcelable

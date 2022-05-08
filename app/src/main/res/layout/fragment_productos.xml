@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="navigation.ProductosFragment"
+    tools:context=".fragments.lista.ProductosFragment"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:backgroundTint="#FFF3DC"
@@ -30,6 +30,7 @@
             android:typeface="monospace"/>
 
         <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvListaProductos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
     </LinearLayout>
@@ -40,8 +41,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:clickable="true"
+        android:backgroundTint="#8A7D63"
         android:src="@drawable/add"
-        android:backgroundTint="#65604F"
+        app:shapeAppearanceOverlay="@style/FabStyle"
         tools:ignore="ContentDescription,KeyboardInaccessibleWidget,
         RtlHardcoded" />
 

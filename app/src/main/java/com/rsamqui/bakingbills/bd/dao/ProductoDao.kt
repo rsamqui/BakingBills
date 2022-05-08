@@ -25,7 +25,7 @@ interface ProductoDao {
     @Delete
     suspend fun delete(producto: ProductoEntity)
 
-    @Query("Delete from Producto")
+    @Query("DELETE FROM Producto")
     suspend fun deleteAll()
 
 

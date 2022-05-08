@@ -39,4 +39,7 @@
     <string name="editar_producto">Editar producto</string>
     <string name="eliminar_ingredientes">Eliminar ingrediente</string>
     <string name="delete">Elminar</string>
+    <string name="ingrediente">Ingrediente</string>
+    <string name="unidades">Unidades</string>
+    <string name="agregar_presupuesto">Agregar Presupuesto</string>
 </resources>
