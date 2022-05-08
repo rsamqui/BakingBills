@@ -28,6 +28,7 @@ class UsuarioAdapter :
         this.listadoUsuario = users
         notifyDataSetChanged()
     }
+
     inner class UsuarioHolder(val binding: ItemUsuarioBinding)
         :
         RecyclerView.ViewHolder(binding.root) {

@@ -6,14 +6,18 @@
     <style name="FabStyle">
 
         <item name="cornerSize">30%</item>
-        <item name="cornerFamily">cut</item>
+        <item name="cornerFamily">rounded</item>
 
     </style>
 
     <style name="FabStyle2">
 
-        <item name="cornerSize">30%</item>
+        <item name="cornerSize">0dp</item>
+        <item name="cornerSizeTopLeft">80%</item>
         <item name="cornerFamily">cut</item>
+        <item name="cornerFamilyTopLeft">rounded</item>
+        <item name="cornerSizeBottomRight">80%</item>
+        <item name="cornerFamilyBottomRight">rounded</item>
 
     </style>
 

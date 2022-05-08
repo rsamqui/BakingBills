@@ -47,7 +47,7 @@
             tools:ignore="ContentDescription" />
 
         <EditText
-            android:id="@+id/etNombre"
+            android:id="@+id/etIngrediente"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -86,7 +86,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etNombre" />
+            app:layout_constraintTop_toBottomOf="@+id/etIngrediente" />
 
         <EditText
             android:id="@+id/etPrecio"

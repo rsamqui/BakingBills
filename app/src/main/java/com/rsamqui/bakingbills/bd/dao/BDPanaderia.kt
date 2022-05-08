@@ -5,6 +5,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
+import com.rsamqui.bakingbills.bd.entidades.PresupuestoEntity
 import com.rsamqui.bakingbills.bd.entidades.ProductoEntity
 import com.rsamqui.bakingbills.bd.entidades.UsuarioEntity
 
@@ -12,15 +13,17 @@ interface MainDataBaseProvider {
     fun usuarioDao(): UsuarioDao
     fun productoDao(): ProductoDao
     fun ingredienteDao(): IngredienteDao
+    fun presupuestoDao(): PresupuestoDao
 }
 
 @Database(
-    entities = [UsuarioEntity::class, ProductoEntity::class, IngredienteEntity::class], version = 3
+    entities = [UsuarioEntity::class, ProductoEntity::class, IngredienteEntity::class, PresupuestoEntity::class], version = 4
 )
 abstract class BDPanaderia : RoomDatabase(), MainDataBaseProvider {
     abstract override fun usuarioDao(): UsuarioDao
     abstract override fun productoDao(): ProductoDao
     abstract override fun ingredienteDao(): IngredienteDao
+    abstract override fun presupuestoDao(): PresupuestoDao
 
 
     companion object {

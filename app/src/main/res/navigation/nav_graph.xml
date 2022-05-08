@@ -26,7 +26,7 @@
             android:id="@+id/products_to_add_products"
             app:destination="@id/addProductFragment" />
         <action
-            android:id="@+id/action_productsFragment_to_editProductoFragment"
+            android:id="@+id/products_to_edit_products"
             app:destination="@id/editProductoFragment" />
     </fragment>
 
@@ -46,6 +46,9 @@
         <action
             android:id="@+id/edit_products_to_products"
             app:destination="@id/productsFragment" />
+        <argument
+            android:name="currentProduct"
+            app:argType="com.rsamqui.bakingbills.bd.entidades.ProductoEntity"/>
     </fragment>
 
     <fragment
