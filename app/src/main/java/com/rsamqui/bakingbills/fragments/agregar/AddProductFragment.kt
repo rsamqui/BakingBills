@@ -6,19 +6,12 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import androidx.navigation.Navigation
 import androidx.navigation.fragment.findNavController
 import com.rsamqui.bakingbills.R
-import com.rsamqui.bakingbills.bd.dao.BDPanaderia
-import com.rsamqui.bakingbills.bd.dao.ProductoDao
 import com.rsamqui.bakingbills.bd.entidades.ProductoEntity
 import com.rsamqui.bakingbills.bd.viewmodels.ProductoViewModels
 import com.rsamqui.bakingbills.databinding.FragmentAddProductBinding
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
 
 class AddProductFragment : Fragment() {
 
@@ -43,8 +36,8 @@ class AddProductFragment : Fragment() {
         }
 
     private fun guardarProducto() {
-        val nombre = fBinding.etIngrediente.text.toString()
-        val descripcion = fBinding.etUnidades.text.toString()
+        val nombre = fBinding.etNombre.text.toString()
+        val descripcion = fBinding.etDescripcion.text.toString()
         val cantidad = fBinding.etCantidad.text.toString().toDouble()
         val precio = fBinding.etPrecio.text.toString().toDouble()
         val peso = fBinding.etPeso.text.toString().toDouble()

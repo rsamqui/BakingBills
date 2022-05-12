@@ -27,8 +27,8 @@ class addIngredientsFragment : Fragment() {
     }
 
     private fun guardarRegistro() {
-        val name = fBinding.etIngrediente.text.toString()
-        val quantity = fBinding.etCantidad.text.toString().toDouble()
+        val name = fBinding.etNombre.text.toString()
+        val quantity = fBinding.etMedida.text.toString().toDouble()
         val price = fBinding.etPrecio.text.toString().toDouble()
         val ingrediente = IngredienteEntity(0, name, quantity, price)
         viewModel.agregarIngrediente(ingrediente)

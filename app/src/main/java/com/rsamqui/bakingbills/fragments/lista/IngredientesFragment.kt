@@ -29,7 +29,7 @@ class IngredientesFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(IngredienteViewModels::class.java)
         viewModel.lista.observe(viewLifecycleOwner, Observer
         {
-                ingrediente-> adapter.setData(ingrediente)
+                ingrediente -> adapter.setData(ingrediente)
         })
 
         setHasOptionsMenu(true)

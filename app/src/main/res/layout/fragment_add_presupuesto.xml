@@ -45,7 +45,7 @@
             tools:ignore="ContentDescription" />
 
         <EditText
-            android:id="@+id/etIngrediente"
+            android:id="@+id/etNombre"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -64,14 +64,14 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <EditText
-            android:id="@+id/etUnidades"
+            android:id="@+id/etDescripcion"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:autofillHints=""
             android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/unit"
+            android:drawableStart="@drawable/quiantity"
             android:drawablePadding="12dp"
             android:hint="@string/unidades"
             android:inputType="text"
@@ -81,7 +81,7 @@
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etIngrediente" />
+            app:layout_constraintTop_toBottomOf="@+id/etNombre" />
 
         <EditText
             android:id="@+id/etPrecio"
@@ -101,19 +101,19 @@
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etCantidad" />
+            app:layout_constraintTop_toBottomOf="@+id/etMedida" />
 
         <EditText
-            android:id="@+id/etCantidad"
+            android:id="@+id/etMedida"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:autofillHints=""
             android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/quiantity"
+            android:drawableStart="@drawable/unit"
             android:drawablePadding="12dp"
-            android:hint="@string/Cantidad"
+            android:hint="@string/medida"
             android:inputType="number"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
@@ -121,7 +121,7 @@
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etUnidades" />
+            app:layout_constraintTop_toBottomOf="@+id/etDescripcion" />
 
         <EditText
             android:id="@+id/etPrecioT"
@@ -133,7 +133,7 @@
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/total"
             android:drawablePadding="12dp"
-            android:hint="@string/peso_gr"
+            android:hint="@string/precio_total"
             android:inputType="numberDecimal"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"

@@ -4,12 +4,9 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
-import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.entidades.ProductoEntity
 import com.rsamqui.bakingbills.databinding.ItemProductoBinding
-import com.rsamqui.bakingbills.fragments.editar.editProductoFragmentDirections
 import com.rsamqui.bakingbills.fragments.lista.ProductosFragmentDirections
-import com.rsamqui.bakingbills.fragments.lista.UsuariosFragmentDirections
 
 class ProductoAdapter : RecyclerView.Adapter<ProductoAdapter.ProductoHolder>() {
     private var listadoProducto = emptyList<ProductoEntity>()

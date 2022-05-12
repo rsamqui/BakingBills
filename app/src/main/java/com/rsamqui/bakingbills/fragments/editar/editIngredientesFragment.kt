@@ -22,8 +22,8 @@ class editIngredientesFragment : Fragment() {
     override fun onCreateView( inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle? ): View? {
         fBinding = FragmentEditIngredientesBinding.inflate(layoutInflater)
         viewModel = ViewModelProvider(this).get(IngredienteViewModels::class.java)
-        with(fBinding) { etIngrediente.setText(args.currentIngrediente.nombre)
-            etCantidad.setText(args.currentIngrediente.cantidad.toString())
+        with(fBinding) { etNombre.setText(args.currentIngrediente.nombre)
+            etMedida.setText(args.currentIngrediente.cantidad.toString())
             etPrecio.setText(args.currentIngrediente.precio.toString())
             btnEditar.setOnClickListener {
                 GuardarCambios()
@@ -34,8 +34,8 @@ class editIngredientesFragment : Fragment() {
     }
 
     private fun GuardarCambios() {
-        val name = fBinding.etIngrediente.text.toString()
-        val quantity = fBinding.etCantidad.text.toString()
+        val name = fBinding.etNombre.text.toString()
+        val quantity = fBinding.etMedida.text.toString()
         val price = fBinding.etPrecio.text.toString()
 
         if(name.isNotEmpty() && quantity.isNotEmpty() && price.isNotEmpty())

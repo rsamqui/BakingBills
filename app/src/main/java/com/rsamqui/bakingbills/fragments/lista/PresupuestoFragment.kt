@@ -5,31 +5,53 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import androidx.navigation.fragment.findNavController
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.Observer
+import androidx.navigation.findNavController
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.rsamqui.bakingbills.R
+import com.rsamqui.bakingbills.bd.adapters.PresupuestoAdapter
+import com.rsamqui.bakingbills.bd.viewmodels.PresupuestoViewModels
 import com.rsamqui.bakingbills.databinding.FragmentPresupuestoBinding
 
 class PresupuestoFragment : Fragment() {
 
-    private var _binding: FragmentPresupuestoBinding? = null
-    private val binding: FragmentPresupuestoBinding get() = _binding!!
-
+    lateinit var fBinding: FragmentPresupuestoBinding
+    private lateinit var viewModel: PresupuestoViewModels
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentPresupuestoBinding.inflate(
-            inflater,
-            container,
-            false
-        )
+        // Inflate the layout for this fragment
+        fBinding = FragmentPresupuestoBinding.inflate(layoutInflater)
+        val adapter = PresupuestoAdapter()
+        val recycleView = fBinding.rcvListaPresupuesto
+        recycleView.adapter = adapter
+        recycleView.layoutManager =
+            LinearLayoutManager(requireContext())
+        viewModel =
+            ViewModelProvider(this).get(PresupuestoViewModels::class.java)
+        viewModel.lista.observe(viewLifecycleOwner, Observer
+            {
+                    presupuesto -> adapter.setData(presupuesto)
+            })
 
-        binding.addBudget.setOnClickListener{
-            findNavController().navigate(R.id.budget_to_add_budget)
-        }
-
-        return binding.root
+        return fBinding.root
     }
 
+    override fun onViewCreated(
+        view: View, savedInstanceState:
+        Bundle?
+    ) {
+        super.onViewCreated(view, savedInstanceState)
+        setupViews()
+    }
 
+    private fun setupViews() {
+        with(fBinding) {
+            addBudget.setOnClickListener{
+                it.findNavController().navigate(R.id.budget_to_add_budget)
+            }
+        }
+    }
 }
