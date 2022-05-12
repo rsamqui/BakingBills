@@ -31,7 +31,7 @@ class editProductoFragment : Fragment() {
             ViewModelProvider(this).get(ProductoViewModels::class.java)
         with(fBinding) {
 
-            tvID.setText(args.currentProduct.idProducto.toString())
+            tvID.text = args.currentProduct.idProducto.toString()
             etNombre.setText(args.currentProduct.nombre)
             etDescripcion.setText(args.currentProduct.descripcion)
             etCantidad.setText(args.currentProduct.cantidad.toString())
@@ -39,7 +39,7 @@ class editProductoFragment : Fragment() {
             etPeso.setText(args.currentProduct.peso.toString())
 
             btnEdit.setOnClickListener{
-                updateProduct()
+               updateProduct()
             }
 
             fBinding.btnVolver.setOnClickListener{

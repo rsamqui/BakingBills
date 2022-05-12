@@ -12,13 +12,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.adapters.ProductoAdapter
 import com.rsamqui.bakingbills.bd.viewmodels.ProductoViewModels
-import com.rsamqui.bakingbills.bd.viewmodels.UsuarioViewModels
 import com.rsamqui.bakingbills.databinding.FragmentProductosBinding
 
 class ProductosFragment : Fragment() {
 
     lateinit var fBinding: FragmentProductosBinding
-    private lateinit var viewModel : ProductoViewModels
+    private lateinit var viewModel: ProductoViewModels
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
@@ -33,18 +32,21 @@ class ProductosFragment : Fragment() {
         viewModel =
             ViewModelProvider(this).get(ProductoViewModels::class.java)
         viewModel.lista.observe(viewLifecycleOwner, Observer
-        {producto->
+        { producto ->
             adapter.setData(producto)
         })
 
         return fBinding.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState:
-    Bundle?) {
+    override fun onViewCreated(
+        view: View, savedInstanceState:
+        Bundle?
+    ) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
     }
+
     private fun setupViews() {
         with(fBinding) {
             addProduct.setOnClickListener {
