@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/editProductoFragment"
-        android:name="com.rsamqui.bakingbills.fragments.editar.editProductoFragment"
+        android:name="com.rsamqui.bakingbills.fragments.editar.EditProductFragment"
         android:label="editProductoFragment" >
         <action
             android:id="@+id/edit_products_to_products"
