@@ -16,7 +16,7 @@ import com.rsamqui.bakingbills.databinding.FragmentEditProductoBinding
 class EditProductFragment : Fragment() {
 
     lateinit var fBinding: FragmentEditProductoBinding
-    private val args by navArgs<editProductoFragmentArgs>()
+    private val args by navArgs<EditProductFragmentArgs>()
     private lateinit var viewModel: ProductoViewModels
 
     override fun onCreateView(

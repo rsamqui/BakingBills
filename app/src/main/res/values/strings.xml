@@ -43,4 +43,5 @@
     <string name="medida">Medida</string>
     <string name="editar_presupuesto">Editar Presupuesto</string>
     <string name="precio_unitario">Precio Unitario</string>
+    <string name="agregar_presupuesto">Agregar Presupuesto</string>
 </resources>

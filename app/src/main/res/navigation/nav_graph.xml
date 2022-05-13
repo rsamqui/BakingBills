@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.rsamqui.bakingbills.navigation.loginFragment"
+        android:name="com.rsamqui.bakingbills.navigation.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
@@ -41,7 +41,7 @@
 
     <fragment
         android:id="@+id/editProductoFragment"
-        android:name="com.rsamqui.bakingbills.fragments.editar.editProductoFragment"
+        android:name="com.rsamqui.bakingbills.fragments.editar.EditProductFragment"
         android:label="editProductoFragment" >
         <action
             android:id="@+id/edit_products_to_products"
