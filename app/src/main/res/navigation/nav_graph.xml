@@ -6,7 +6,7 @@
     app:startDestination="@id/loginFragment">
     <fragment
         android:id="@+id/loginFragment"
-        android:name="com.rsamqui.bakingbills.navigation.loginFragment"
+        android:name="com.rsamqui.bakingbills.navigation.LoginFragment"
         android:label="fragment_login"
         tools:layout="@layout/fragment_login" >
         <action
