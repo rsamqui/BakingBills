@@ -126,5 +126,20 @@
             app:layout_constraintHorizontal_bias="0.884"
             app:layout_constraintStart_toEndOf="@+id/btnVolver" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/deleteIngrediente"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="144dp"
+            android:backgroundTint="#AC9A75"
+            android:src="@drawable/delete"
+            android:tint="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/btnEditar"
+            app:layout_constraintHorizontal_bias="0.471"
+            app:layout_constraintStart_toEndOf="@+id/btnVolver"
+            app:layout_constraintTop_toBottomOf="@+id/etPrecio"
+            app:shapeAppearanceOverlay="@style/FabStyle2"
+            tools:ignore="ContentDescription,MissingConstraints" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

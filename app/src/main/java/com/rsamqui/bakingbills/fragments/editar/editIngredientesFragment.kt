@@ -28,6 +28,9 @@ class editIngredientesFragment : Fragment() {
             btnEditar.setOnClickListener {
                 GuardarCambios()
             }
+            fBinding.btnVolver.setOnClickListener {
+                findNavController().navigate(R.id.edit_ingredientes_to_ingredientes)
+            }
         }
         setHasOptionsMenu(true)
         return fBinding.root
@@ -66,14 +69,24 @@ class editIngredientesFragment : Fragment() {
     }
     private fun eliminarIngrediente() {
         val alerta = AlertDialog.Builder(requireContext())
-        alerta.setPositiveButton("Si") { _, _ -> viewModel.eliminarIngrediente(args.currentIngrediente)
-            Toast.makeText( requireContext(), "Ingrediente eliminado satisfactoriamente...", Toast.LENGTH_LONG ).show()
+        alerta.setPositiveButton("Si") { _, _ ->
+            viewModel.eliminarIngrediente(args.currentIngrediente)
+            Toast.makeText(
+                requireContext(),
+                "Registro eliminado satisfactoriamente...",
+                Toast.LENGTH_LONG
+            ).show()
             findNavController().navigate(R.id.edit_ingredientes_to_ingredientes)
         }
-        alerta.setNegativeButton("No") { _, _ -> Toast.makeText( requireContext(), "Operación cancelada...", Toast.LENGTH_LONG ).show()
+        alerta.setNegativeButton("No") { _, _ ->
+            Toast.makeText(
+                requireContext(),
+                "Operación cancelada...",
+                Toast.LENGTH_LONG
+            ).show()
         }
         alerta.setTitle("Eliminando ${args.currentIngrediente.nombre}")
-        alerta.setMessage("¿Esta seguro de eliminar ${args.currentIngrediente.nombre}?")
+        alerta.setMessage("¿Esta seguro de eliminar a ${args.currentIngrediente.nombre}?")
         alerta.create().show()
     }
 }

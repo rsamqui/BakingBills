@@ -23,6 +23,9 @@ class addIngredientsFragment : Fragment() {
         fBinding.btnAgregar.setOnClickListener {
             guardarRegistro()
         }
+        fBinding.btnVolver.setOnClickListener {
+            findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
+        }
         return fBinding.root
     }
 
