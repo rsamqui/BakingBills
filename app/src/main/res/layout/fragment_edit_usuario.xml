@@ -172,6 +172,24 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/deleteUsuario"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:backgroundTint="#AC9A75"
+            android:contentDescription="@string/eliminar_usuarios"
+            android:src="@drawable/delete"
+            android:tint="@color/white"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/btnActualizar"
+            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintStart_toEndOf="@+id/btnVolver"
+            app:layout_constraintTop_toBottomOf="@+id/etPwd"
+            app:shapeAppearanceOverlay="@style/FabStyle2"
+            tools:ignore="ContentDescription,MissingConstraints" />
+
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
 </FrameLayout>
