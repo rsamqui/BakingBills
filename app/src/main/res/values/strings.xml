@@ -41,4 +41,6 @@
     <string name="ingrediente">Ingrediente</string>
     <string name="unidades">Unidades</string>
     <string name="medida">Medida</string>
+    <string name="editar_presupuesto">Editar Presupuesto</string>
+    <string name="precio_unitario">Precio Unitario</string>
 </resources>

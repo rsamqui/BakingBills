@@ -2,10 +2,11 @@ package com.rsamqui.bakingbills.bd.adapters
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import com.rsamqui.bakingbills.bd.entidades.PresupuestoEntity
-import com.rsamqui.bakingbills.bd.entidades.ProductoEntity
 import com.rsamqui.bakingbills.databinding.ItemPresupuestoBinding
+import com.rsamqui.bakingbills.fragments.lista.PresupuestoFragmentDirections
 
 class PresupuestoAdapter : RecyclerView.Adapter<PresupuestoAdapter.PresupuestoHolder>() {
     private var listadoPresupuesto = emptyList<PresupuestoEntity>()
@@ -43,9 +44,14 @@ class PresupuestoAdapter : RecyclerView.Adapter<PresupuestoAdapter.PresupuestoHo
             with(binding) {
                 tvId.text = presupuesto.idPresupuesto.toString()
                 tvIngrediente.text = presupuesto.ingrediente
-                tvMedida.text = presupuesto.medida.toString()
+                tvMedida.text = presupuesto.medida
                 tvPrecioU.text = presupuesto.precio.toString()
                 tvPrecioT.text = presupuesto.total.toString()
+                cvPresupuesto.setOnClickListener{
+                    val action =
+                        PresupuestoFragmentDirections.budgetToEditBudget(presupuesto)
+                    it.findNavController().navigate(action)
+                }
             }
         }
     }

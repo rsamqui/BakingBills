@@ -5,7 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/cvPresupuesto"
     android:layout_width="match_parent"
-    android:layout_height="300dp"
+    android:layout_height="250dp"
     android:layout_margin="4dp"
     android:clickable="true"
     android:focusable="true"
@@ -243,8 +243,6 @@
                         android:textColor="@color/black"
                         android:textSize="20sp" />
 
-
-
                 </LinearLayout>
 
             </LinearLayout>
@@ -253,19 +251,7 @@
 
     </LinearLayout>
 
-        <com.google.android.material.floatingactionbutton.FloatingActionButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="end|bottom"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:tint="@color/white"
-            android:backgroundTint="#AC9A75"
-            android:src="@drawable/delete"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:shapeAppearanceOverlay="@style/FabStyle2"
-            tools:ignore="ContentDescription" />
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
