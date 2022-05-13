@@ -10,8 +10,7 @@ import com.rsamqui.bakingbills.bd.repository.IngredienteRepository
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class IngredienteViewModels(application:
-                        Application):AndroidViewModel(application) {
+class IngredienteViewModels(application:Application):AndroidViewModel(application) {
     val lista : LiveData<List<IngredienteEntity>>
     private val repository: IngredienteRepository
     init {

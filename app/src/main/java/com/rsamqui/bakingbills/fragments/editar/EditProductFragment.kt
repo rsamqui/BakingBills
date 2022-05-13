@@ -13,7 +13,7 @@ import com.rsamqui.bakingbills.bd.entidades.ProductoEntity
 import com.rsamqui.bakingbills.bd.viewmodels.ProductoViewModels
 import com.rsamqui.bakingbills.databinding.FragmentEditProductoBinding
 
-class editProductoFragment : Fragment() {
+class EditProductFragment : Fragment() {
 
     lateinit var fBinding: FragmentEditProductoBinding
     private val args by navArgs<editProductoFragmentArgs>()
@@ -30,7 +30,6 @@ class editProductoFragment : Fragment() {
         viewModel =
             ViewModelProvider(this).get(ProductoViewModels::class.java)
         with(fBinding) {
-
             tvID.text = args.currentProduct.idProducto.toString()
             etNombre.setText(args.currentProduct.nombre)
             etDescripcion.setText(args.currentProduct.descripcion)

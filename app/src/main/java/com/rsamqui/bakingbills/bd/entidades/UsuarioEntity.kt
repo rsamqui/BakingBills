@@ -13,7 +13,7 @@ data class UsuarioEntity(
     val idUsuario:Int = 0,
     @ColumnInfo(name = "usuario")
     val nombres: String,
-    @ColumnInfo(name = "nombres")
+    @ColumnInfo(name = "apellidos")
     val apellidos: String,
     @ColumnInfo(name = "username")
     val username: String,

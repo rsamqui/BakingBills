@@ -6,10 +6,10 @@ import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
 
 class IngredienteRepository(private val dao: IngredienteDao) {
     val listado: LiveData<List<IngredienteEntity>> =
-        dao.getAllRealData()
+        dao.getAllIngrediente()
 
     suspend fun addIngrediente(ingrediente: IngredienteEntity) {
-        dao.insert(ingrediente)
+        dao.insertIngrediente(ingrediente)
     }
 
     suspend fun updateIngrediente(ingrediente: IngredienteEntity) {

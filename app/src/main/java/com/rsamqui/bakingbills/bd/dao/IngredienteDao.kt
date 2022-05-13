@@ -8,13 +8,13 @@ import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
 interface IngredienteDao {
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(ingrediente: IngredienteEntity)
+    suspend fun insertIngrediente(ingrediente: IngredienteEntity)
 
     @Query("SELECT * FROM Ingrediente")
     suspend fun getAll(): List<IngredienteEntity>
 
     @Query("SELECT * FROM Ingrediente")
-    fun getAllRealData(): LiveData<List<IngredienteEntity>>
+    fun getAllIngrediente(): LiveData<List<IngredienteEntity>>
 
     @Query("SELECT * FROM Ingrediente WHERE idIngrediente = :id")
     suspend fun getById(id : Int) : IngredienteEntity

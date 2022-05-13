@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<androidx.constraintlayout.widget.ConstraintLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -10,12 +10,6 @@
     android:orientation="vertical"
     android:backgroundTint="#FFF3DC"
     android:padding="16dp">
-
-    <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        tools:ignore="UselessParent">
 
         <TextView
             android:id="@+id/textView2"
@@ -45,27 +39,6 @@
             app:layout_constraintTop_toBottomOf="@+id/textView2"
             tools:ignore="ContentDescription" />
 
-
-        <EditText
-            android:id="@+id/etID"
-            android:layout_width="350dp"
-            android:layout_height="60dp"
-            android:layout_gravity="center"
-            android:layout_marginTop="25dp"
-            android:autofillHints=""
-            android:background="@drawable/custom_input"
-            android:drawableStart="@drawable/id"
-            android:drawablePadding="12dp"
-            android:hint="@string/id"
-            android:inputType="text"
-            android:paddingStart="12dp"
-            android:paddingEnd="12dp"
-            android:textColor="@color/black"
-            android:textColorHint="#68604A"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
         <EditText
             android:id="@+id/etNombre"
             android:layout_width="350dp"
@@ -84,7 +57,7 @@
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etID" />
+            app:layout_constraintTop_toBottomOf="@+id/imageView3" />
 
         <EditText
             android:id="@+id/etMedida"
@@ -140,7 +113,7 @@
             app:layout_constraintStart_toStartOf="parent" />
 
         <Button
-            android:id="@+id/btnAgregar"
+            android:id="@+id/btnEditar"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="start"
@@ -155,4 +128,3 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-</FrameLayout>

@@ -9,7 +9,7 @@ import androidx.navigation.fragment.findNavController
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.databinding.FragmentLoginBinding
 
-class loginFragment : Fragment() {
+class LoginFragment : Fragment() {
 
     private var _binding: FragmentLoginBinding? = null
     private val binding : FragmentLoginBinding get() = _binding!!
