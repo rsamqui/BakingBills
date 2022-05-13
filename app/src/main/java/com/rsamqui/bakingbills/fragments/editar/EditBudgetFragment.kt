@@ -12,9 +12,6 @@ import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.entidades.PresupuestoEntity
 import com.rsamqui.bakingbills.bd.viewmodels.PresupuestoViewModels
 import com.rsamqui.bakingbills.databinding.FragmentEditBudgetBinding
-import kotlinx.android.synthetic.main.item_presupuesto.*
-import kotlinx.android.synthetic.main.item_producto.*
-import kotlinx.android.synthetic.main.item_producto.tvId
 
 class EditBudgetFragment : Fragment() {
 
@@ -34,7 +31,7 @@ class EditBudgetFragment : Fragment() {
             ViewModelProvider(this).get(PresupuestoViewModels::class.java)
         with(fBinding) {
 
-            tvId.text = args.currentBudget.idPresupuesto.toString()
+            tvID.text = args.currentBudget.idPresupuesto.toString()
             etIngrediente.setText(args.currentBudget.ingrediente)
             etUnidades.setText(args.currentBudget.unidades.toString())
             etMedida.setText(args.currentBudget.medida)
@@ -83,13 +80,27 @@ class EditBudgetFragment : Fragment() {
                 requireContext(), "Registro actualizado",
                 Toast.LENGTH_LONG
             ).show()
-            findNavController().navigate(R.id.edit_products_to_products)
+            findNavController().navigate(R.id.edit_budget_to_budget)
         } else {
             Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG)
                 .show()
 
         }
 
+    }
+
+    override fun onCreateOptionsMenu(
+        menu: Menu, inflater:
+        MenuInflater
+    ) {
+        inflater.inflate(R.menu.menuopcion, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        if (item.itemId == R.id.mnuEliminar) {
+            deletePresupuesto()
+        }
+        return super.onOptionsItemSelected(item)
     }
 
     private fun deletePresupuesto(){
@@ -102,7 +113,7 @@ class EditBudgetFragment : Fragment() {
                 "Registro eliminado satisfactoriamente...",
                 Toast.LENGTH_LONG
             ).show()
-            findNavController().navigate(R.id.edit_products_to_products)
+            findNavController().navigate(R.id.edit_budget_to_budget)
         }
         alerta.setNegativeButton("No") { _, _ ->
             Toast.makeText(

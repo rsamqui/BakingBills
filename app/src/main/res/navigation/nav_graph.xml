@@ -107,7 +107,7 @@
             android:id="@+id/budget_to_add_budget"
             app:destination="@id/addBudget" />
         <action
-            android:id="@+id/action_budgetFragment_to_editBudgetFragment"
+            android:id="@+id/budget_to_edit_budget"
             app:destination="@id/editBudgetFragment" />
     </fragment>
     <fragment

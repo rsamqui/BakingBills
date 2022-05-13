@@ -22,9 +22,6 @@ import com.rsamqui.bakingbills.fragments.editar.EditBudgetFragmentArgs
 
 class PresupuestoFragment : Fragment() {
 
-    lateinit var iBinding: ItemPresupuestoBinding
-    private val args by navArgs<EditBudgetFragmentArgs>()
-
     lateinit var fBinding: FragmentPresupuestoBinding
     private lateinit var viewModel: PresupuestoViewModels
     override fun onCreateView(
@@ -59,6 +56,7 @@ class PresupuestoFragment : Fragment() {
     private fun setupViews() {
         with(fBinding) {
             addBudget.setOnClickListener {
+
                 it.findNavController().navigate(R.id.budget_to_add_budget)
             }
         }

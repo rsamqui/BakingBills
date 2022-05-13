@@ -208,15 +208,16 @@
             android:id="@+id/deleteBudget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:backgroundTint="#AC9A75"
             android:src="@drawable/delete"
             android:tint="@color/white"
             app:layout_constraintEnd_toStartOf="@+id/btnEdit"
             app:layout_constraintHorizontal_bias="0.454"
             app:layout_constraintStart_toEndOf="@+id/btnVolver"
+            app:layout_constraintTop_toBottomOf="@+id/etPrecioT"
             app:shapeAppearanceOverlay="@style/FabStyle2"
-            tools:ignore="ContentDescription,MissingConstraints"
-            tools:layout_editor_absoluteY="632dp" />
+            tools:ignore="ContentDescription,MissingConstraints" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
