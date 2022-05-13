@@ -105,11 +105,14 @@
         android:label="PresupuestoFragment" >
         <action
             android:id="@+id/budget_to_add_budget"
-            app:destination="@id/addPresupuestoFragment" />
+            app:destination="@id/addBudget" />
+        <action
+            android:id="@+id/action_budgetFragment_to_editBudgetFragment"
+            app:destination="@id/editBudgetFragment" />
     </fragment>
     <fragment
-        android:id="@+id/addPresupuestoFragment"
-        android:name="com.rsamqui.bakingbills.fragments.agregar.addPresupuestoFragment"
+        android:id="@+id/addBudget"
+        android:name="com.rsamqui.bakingbills.fragments.agregar.AddPresupuestoFragment"
         android:label="addPresupuestoFragment" >
         <action
             android:id="@+id/add_budget_to_budget"
@@ -126,6 +129,18 @@
         <argument
             android:name="currentUsuario"
             app:argType="com.rsamqui.bakingbills.bd.entidades.UsuarioEntity" />
+    </fragment>
+    <fragment
+        android:id="@+id/editBudgetFragment"
+        android:name="com.rsamqui.bakingbills.fragments.editar.EditBudgetFragment"
+        android:label="fragment_edit_budget"
+        tools:layout="@layout/fragment_edit_budget" >
+        <action
+            android:id="@+id/edit_budget_to_budget"
+            app:destination="@id/budgetFragment" />
+        <argument
+            android:name="currentBudget"
+            app:argType="com.rsamqui.bakingbills.bd.entidades.PresupuestoEntity"/>
     </fragment>
 
 </navigation>

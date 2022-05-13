@@ -4,35 +4,35 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".fragments.lista.PresupuestoFragment"
     android:background="@android:color/white"
-    android:orientation="vertical"
     android:backgroundTint="#FFF3DC"
-    android:padding="16dp">
+    android:orientation="vertical"
+    android:padding="16dp"
+    tools:context=".fragments.lista.PresupuestoFragment">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:orientation="vertical"
         tools:ignore="UselessParent">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
 
-        android:fontFamily="sans-serif-smallcaps"
-        android:text="@string/lista_de_presupuestos"
-        android:textAlignment="center"
-        android:textAppearance="@style/TextAppearance.AppCompat.Medium"
-        android:textColor="@color/black"
-        android:textSize="35sp"
-        android:textStyle="bold"
-        android:typeface="monospace"/>
+            android:fontFamily="sans-serif-smallcaps"
+            android:text="@string/lista_de_presupuestos"
+            android:textAlignment="center"
+            android:textAppearance="@style/TextAppearance.AppCompat.Medium"
+            android:textColor="@color/black"
+            android:textSize="35sp"
+            android:textStyle="bold"
+            android:typeface="monospace" />
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rcvListaPresupuesto"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rcvListaPresupuesto"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
 
     </LinearLayout>
 
@@ -42,8 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:clickable="true"
+        android:backgroundTint="#8A7D63"
         android:src="@drawable/add"
-        android:backgroundTint="#65604F"
+        app:shapeAppearanceOverlay="@style/FabStyle"
         tools:ignore="ContentDescription,KeyboardInaccessibleWidget,
         RtlHardcoded" />
 

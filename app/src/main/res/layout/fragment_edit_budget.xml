@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="fragments.agregar.AddPresupuestoFragment"
+    tools:context="fragments.editar.EditBudgetFragment"
     android:background="@android:color/white"
     android:orientation="vertical"
     android:backgroundTint="#FFF3DC"
@@ -21,7 +21,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:fontFamily="sans-serif-smallcaps"
-            android:text="@string/agregar_presupuesto"
+            android:text="@string/editar_presupuesto"
             android:textAlignment="center"
             android:textAppearance="@style/TextAppearance.AppCompat.Medium"
             android:textColor="@color/black"
@@ -34,8 +34,8 @@
 
         <ImageView
             android:id="@+id/imageView5"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="294dp"
+            android:layout_height="137dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
             android:src="@drawable/logo"
@@ -44,11 +44,44 @@
             app:layout_constraintTop_toBottomOf="@+id/textView4"
             tools:ignore="ContentDescription" />
 
+        <TextView
+            android:id="@+id/etID"
+            android:layout_width="350dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:autofillHints=""
+            android:background="@drawable/custom_input"
+            android:drawablePadding="12dp"
+            android:text=""
+            android:inputType="none"
+            android:paddingStart="12dp"
+            android:paddingEnd="12dp"
+            android:textColor="@color/black"
+            android:textColorHint="#68604A"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5"
+            app:drawableStartCompat="@drawable/id" />
+
+        <TextView
+            android:id="@+id/tvID"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="@+id/etID"
+            app:layout_constraintEnd_toEndOf="@+id/etID"
+            app:layout_constraintHorizontal_bias="0.151"
+            app:layout_constraintStart_toStartOf="@+id/etID"
+            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+
         <EditText
             android:id="@+id/etIngrediente"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
+            android:layout_marginTop="16dp"
             android:autofillHints=""
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/tag"
@@ -60,8 +93,9 @@
             android:textColor="@color/black"
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.448"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/imageView5" />
+            app:layout_constraintTop_toBottomOf="@+id/etID" />
 
         <EditText
             android:id="@+id/etUnidades"
@@ -74,7 +108,7 @@
             android:drawableStart="@drawable/quiantity"
             android:drawablePadding="12dp"
             android:hint="@string/unidades"
-            android:inputType="numberDecimal"
+            android:inputType="text"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
@@ -114,7 +148,7 @@
             android:drawableStart="@drawable/unit"
             android:drawablePadding="12dp"
             android:hint="@string/medida"
-            android:inputType="text"
+            android:inputType="number"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
@@ -152,23 +186,37 @@
             android:backgroundTint="#4C4533"
             android:text="@string/volver"
             android:textColor="#CDC7B4"
-            app:layout_constraintEnd_toStartOf="@+id/btnAgregar"
+            app:layout_constraintEnd_toStartOf="@+id/btnEdit"
             app:layout_constraintHorizontal_bias="0.13"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPrecioT" />
 
         <Button
-            android:id="@+id/btnAgregar"
+            android:id="@+id/btnEdit"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="start"
             android:layout_marginTop="8dp"
             android:layout_marginEnd="12dp"
             android:backgroundTint="#4C4533"
-            android:text="@string/agregar"
+            android:text="@string/editar"
             android:textColor="#CDC7B4"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPrecioT" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/deleteBudget"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:backgroundTint="#AC9A75"
+            android:src="@drawable/delete"
+            android:tint="@color/white"
+            app:layout_constraintEnd_toStartOf="@+id/btnEdit"
+            app:layout_constraintHorizontal_bias="0.454"
+            app:layout_constraintStart_toEndOf="@+id/btnVolver"
+            app:shapeAppearanceOverlay="@style/FabStyle2"
+            tools:ignore="ContentDescription,MissingConstraints"
+            tools:layout_editor_absoluteY="632dp" />
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>

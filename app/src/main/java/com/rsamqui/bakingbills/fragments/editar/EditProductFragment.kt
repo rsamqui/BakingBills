@@ -38,12 +38,16 @@ class editProductoFragment : Fragment() {
             etPrecio.setText(args.currentProduct.precio.toString())
             etPeso.setText(args.currentProduct.peso.toString())
 
-            btnEdit.setOnClickListener{
-               updateProduct()
+            btnEdit.setOnClickListener {
+                updateProduct()
             }
 
-            fBinding.btnVolver.setOnClickListener{
+            fBinding.btnVolver.setOnClickListener {
                 findNavController().navigate(R.id.edit_products_to_products)
+            }
+
+            fBinding.deleteBudget.setOnClickListener{
+                deleteProduct()
             }
         }
         setHasOptionsMenu(true)
@@ -57,35 +61,39 @@ class editProductoFragment : Fragment() {
         val precio = fBinding.etPrecio.text.toString()
         val peso = fBinding.etPeso.text.toString()
 
-        if(nombre.isNotEmpty() && descripcion.isNotEmpty() && cantidad.isNotEmpty() &&
-            precio.isNotEmpty() && peso.isNotEmpty())
-        {
-            val product = ProductoEntity(args.currentProduct.idProducto,
+        if (nombre.isNotEmpty() && descripcion.isNotEmpty() && cantidad.isNotEmpty() &&
+            precio.isNotEmpty() && peso.isNotEmpty()
+        ) {
+            val product = ProductoEntity(
+                args.currentProduct.idProducto,
                 nombre,
                 descripcion,
                 cantidad.toDouble(),
                 precio.toDouble(),
                 peso.toDouble(),
-                true)
+                true
+            )
 
             viewModel.actualizarProducto(product)
-            Toast.makeText(requireContext(), "Registro actualizado",
-                Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                requireContext(), "Registro actualizado",
+                Toast.LENGTH_LONG
+            ).show()
             findNavController().navigate(R.id.edit_products_to_products)
-        }
-        else
-        {
-            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG)
+                .show()
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater:
-    MenuInflater
+    override fun onCreateOptionsMenu(
+        menu: Menu, inflater:
+        MenuInflater
     ) {
         inflater.inflate(R.menu.menuopcion, menu)
     }
-    override fun onOptionsItemSelected(item: MenuItem): Boolean
-    {
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.mnuEliminar) {
             deleteProduct()
         }

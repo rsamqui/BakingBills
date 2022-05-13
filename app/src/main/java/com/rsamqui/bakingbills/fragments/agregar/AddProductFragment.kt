@@ -1,11 +1,11 @@
 package com.rsamqui.bakingbills.fragments.agregar
 
 import android.os.Bundle
+import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
-import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import com.rsamqui.bakingbills.R
@@ -28,12 +28,16 @@ class AddProductFragment : Fragment() {
         viewModel =
             ViewModelProvider(this).get(ProductoViewModels::class.java)
 
-        fBinding.btnAgregar.setOnClickListener{
+        fBinding.btnAgregar.setOnClickListener {
             guardarProducto()
         }
 
-        return fBinding.root
+        fBinding.btnVolver.setOnClickListener {
+            findNavController().navigate(R.id.add_products_to_products)
         }
+
+        return fBinding.root
+    }
 
     private fun guardarProducto() {
         val nombre = fBinding.etNombre.text.toString()
@@ -42,19 +46,24 @@ class AddProductFragment : Fragment() {
         val precio = fBinding.etPrecio.text.toString().toDouble()
         val peso = fBinding.etPeso.text.toString().toDouble()
 
-        if(nombre.isNotEmpty() && descripcion.isNotEmpty()){
-            val producto = ProductoEntity(0,nombre, descripcion, cantidad, precio,
-            peso, true)
+        if (nombre.isNotEmpty() && descripcion.isNotEmpty() && cantidad.toString().isNotEmpty() &&
+            precio.toString().isNotEmpty() && peso.toString().isNotEmpty()) {
+            val producto = ProductoEntity(
+                0, nombre, descripcion, cantidad, precio,
+                peso, true
+            )
 
             viewModel.agregarProducto(producto)
-            Toast.makeText(requireContext(), "Registro Guardado",
-                Toast.LENGTH_LONG).show()
+            Toast.makeText(
+                requireContext(), "Registro Guardado",
+                Toast.LENGTH_LONG
+            ).show()
             findNavController().navigate(R.id.add_products_to_products)
-        }
-        else
-        {
-            Toast.makeText(requireContext(), "Debe rellenar todos los campos",
-                Toast.LENGTH_LONG).show()
+        } else {
+            Toast.makeText(
+                requireContext(), "Debe rellenar todos los campos",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 }

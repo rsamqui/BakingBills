@@ -16,7 +16,7 @@ data class PresupuestoEntity(
     @ColumnInfo(name = "unidades")
     val unidades: Double,
     @ColumnInfo(name = "medida")
-    val medida: Double,
+    val medida: String,
     @ColumnInfo(name = "precio")
     val precio: Double,
     @ColumnInfo(name = "total")
