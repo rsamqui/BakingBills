@@ -40,6 +40,10 @@ class editUsuarioFragment : Fragment() {
             fBinding.btnVolver.setOnClickListener{
                 findNavController().navigate(R.id.edit_usuarios_to_usuarios)
             }
+
+            fBinding.deleteUsuario.setOnClickListener{
+                eliminarUsuario()
+            }
         }
         //Agregar menu
         setHasOptionsMenu(true)

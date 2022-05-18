@@ -45,7 +45,7 @@ class addUserFragment : Fragment() {
         val pwd = fBinding.etPwd.text.toString()
 
 
-        if(username.isNotEmpty() && nombres.isNotEmpty() && apellidos.isNotEmpty() && email.isNotEmpty()  && email.isNotEmpty()   && pwd.isNotEmpty())
+        if(username.isNotEmpty() && nombres.isNotEmpty() && apellidos.isNotEmpty()  && email.isNotEmpty()   && pwd.isNotEmpty())
         {
             //Crear objeto
             val usuario = UsuarioEntity(0, username,

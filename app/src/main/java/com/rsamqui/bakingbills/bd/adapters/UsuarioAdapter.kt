@@ -38,6 +38,7 @@ class UsuarioAdapter :
                 TvUsername.text = usuario.username
                 TvNombres.text = usuario.nombres
                 TvApellidos.text = usuario.apellidos
+                TvEmail.text = usuario.email
                 ClFilaUsuario.setOnClickListener {
                     val action =
                         UsuariosFragmentDirections.usuarioToEditUsuario(usuario)
