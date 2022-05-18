@@ -31,6 +31,9 @@ class editIngredientesFragment : Fragment() {
             fBinding.btnVolver.setOnClickListener {
                 findNavController().navigate(R.id.edit_ingredientes_to_ingredientes)
             }
+            fBinding.deleteIngrediente.setOnClickListener{
+                delIngrediente()
+            }
         }
         setHasOptionsMenu(true)
         return fBinding.root
@@ -57,17 +60,21 @@ class editIngredientesFragment : Fragment() {
         }
     }
 
-    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater) {
+    override fun onCreateOptionsMenu(
+        menu: Menu, inflater:
+        MenuInflater
+    ) {
         inflater.inflate(R.menu.menuopcion, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.mnuEliminar) {
-            eliminarIngrediente()
+            delIngrediente()
         }
         return super.onOptionsItemSelected(item)
     }
-    private fun eliminarIngrediente() {
+
+    private fun delIngrediente() {
         val alerta = AlertDialog.Builder(requireContext())
         alerta.setPositiveButton("Si") { _, _ ->
             viewModel.eliminarIngrediente(args.currentIngrediente)
