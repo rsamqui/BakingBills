@@ -44,6 +44,7 @@ class PresupuestoAdapter : RecyclerView.Adapter<PresupuestoAdapter.PresupuestoHo
             with(binding) {
                 tvId.text = presupuesto.idPresupuesto.toString()
                 tvIngrediente.text = presupuesto.ingrediente
+                tvUnidades.text = presupuesto.unidades.toString()
                 tvMedida.text = presupuesto.medida
                 tvPrecioU.text = presupuesto.precio.toString()
                 tvPrecioT.text = presupuesto.total.toString()
