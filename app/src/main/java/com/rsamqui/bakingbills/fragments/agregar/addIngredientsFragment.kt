@@ -29,13 +29,18 @@ class addIngredientsFragment : Fragment() {
         return fBinding.root
     }
 
-    private fun guardarRegistro() {
+    private fun guardarRegistro() {        
         val name = fBinding.etNombre.text.toString()
-        val quantity = fBinding.etMedida.text.toString().toDouble()
-        val price = fBinding.etPrecio.text.toString().toDouble()
-        val ingrediente = IngredienteEntity(0, name, quantity, price)
-        viewModel.agregarIngrediente(ingrediente)
-        Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
-        findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
+        val quantity = fBinding.etMedida.text.toString()
+        val price = fBinding.etPrecio.text.toString()
+        
+        if(name.isNotEmpty() && quantity.isNotEmpty() && price.isNotEmpty()){
+            val ingrediente = IngredienteEntity(0, name, quantity.toDouble(), price.toDouble())
+            viewModel.agregarIngrediente(ingrediente)
+            Toast.makeText(requireContext(), "Registro guardado", Toast.LENGTH_LONG).show()
+            findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
+        }else{
+            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        }
     }
 }
