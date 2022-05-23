@@ -1,3 +1,3 @@
 # BakingBills
 
-Mockup bakery´s inventory sistem made in Kotlin using Android Studio
+Mockup bakery´s inventory sistem made in Android Studio using Kotlin
