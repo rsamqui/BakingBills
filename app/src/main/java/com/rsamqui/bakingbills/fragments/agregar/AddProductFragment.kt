@@ -42,15 +42,15 @@ class AddProductFragment : Fragment() {
     private fun guardarProducto() {
         val nombre = fBinding.etNombre.text.toString()
         val descripcion = fBinding.etDescripcion.text.toString()
-        val cantidad = fBinding.etCantidad.text.toString().toDouble()
-        val precio = fBinding.etPrecio.text.toString().toDouble()
-        val peso = fBinding.etPeso.text.toString().toDouble()
+        val cantidad = fBinding.etCantidad.text.toString()
+        val precio = fBinding.etPrecio.text.toString()
+        val peso = fBinding.etPeso.text.toString()
 
         if (nombre.isNotEmpty() && descripcion.isNotEmpty() && cantidad.toString().isNotEmpty() &&
-            precio.toString().isNotEmpty() && peso.toString().isNotEmpty()) {
+            precio.isNotEmpty() && peso.isNotEmpty()) {
             val producto = ProductoEntity(
-                0, nombre, descripcion, cantidad, precio,
-                peso, true
+                0, nombre, descripcion, cantidad.toDouble(), precio.toDouble(),
+                peso.toDouble(), true
             )
 
             viewModel.agregarProducto(producto)

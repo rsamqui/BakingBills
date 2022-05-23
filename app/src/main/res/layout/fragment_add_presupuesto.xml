@@ -64,7 +64,7 @@
             app:layout_constraintTop_toBottomOf="@+id/imageView5" />
 
         <EditText
-            android:id="@+id/etUnidades"
+            android:id="@+id/etUnits"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -84,7 +84,7 @@
             app:layout_constraintTop_toBottomOf="@+id/etIngrediente" />
 
         <EditText
-            android:id="@+id/etPrecio"
+            android:id="@+id/etPrice"
             android:layout_width="350dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
@@ -121,11 +121,11 @@
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etUnidades" />
+            app:layout_constraintTop_toBottomOf="@+id/etUnits" />
 
-        <EditText
-            android:id="@+id/etPrecioT"
-            android:layout_width="350dp"
+        <TextView
+            android:id="@+id/etPrecioTotal"
+            android:layout_width="250dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
@@ -133,22 +133,48 @@
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/total"
             android:drawablePadding="12dp"
-            android:hint="@string/precio_total"
-            android:inputType="numberDecimal"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.116"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/etPrecio" />
+            app:layout_constraintTop_toBottomOf="@+id/etPrice" />
+
+        <TextView
+            android:id="@+id/etPrecioT"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/precio_total"
+            android:textSize="18sp"
+            android:textColor="#68604A"
+            android:textColorHint="#68604A"
+            app:layout_constraintBottom_toBottomOf="@+id/etPrecioTotal"
+            app:layout_constraintEnd_toEndOf="@+id/etPrecioTotal"
+            app:layout_constraintHorizontal_bias="0.685"
+            app:layout_constraintStart_toStartOf="@+id/etPrecioTotal"
+            app:layout_constraintTop_toTopOf="@+id/etPrecioTotal"
+            app:layout_constraintVertical_bias="0.472" />
+
+        <Button
+            android:id="@+id/btnCalcular"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:backgroundTint="#4C4533"
+            android:text="@string/equals"
+            android:textColor="#CDC7B4"
+            app:layout_constraintBottom_toTopOf="@+id/btnAgregar"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/etPrecioTotal"
+            app:layout_constraintTop_toBottomOf="@+id/etPrice" />
 
         <Button
             android:id="@+id/btnVolver"
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="end"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="36dp"
             android:backgroundTint="#4C4533"
             android:text="@string/volver"
             android:textColor="#CDC7B4"
@@ -162,8 +188,8 @@
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="start"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="12dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginEnd="16dp"
             android:backgroundTint="#4C4533"
             android:text="@string/agregar"
             android:textColor="#CDC7B4"

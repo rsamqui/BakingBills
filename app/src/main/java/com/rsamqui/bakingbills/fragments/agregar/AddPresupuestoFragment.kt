@@ -12,6 +12,7 @@ import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.entidades.PresupuestoEntity
 import com.rsamqui.bakingbills.bd.viewmodels.PresupuestoViewModels
 import com.rsamqui.bakingbills.databinding.FragmentAddPresupuestoBinding
+import kotlinx.android.synthetic.main.fragment_add_presupuesto.*
 
 class AddPresupuestoFragment : Fragment() {
 
@@ -36,21 +37,24 @@ class AddPresupuestoFragment : Fragment() {
             findNavController().navigate(R.id.add_budget_to_budget)
         }
 
+        calcularTotal()
+
         return fBinding.root
     }
 
     private fun guardarPresupuesto() {
         val ingrediente = fBinding.etIngrediente.text.toString()
-        val unidades = fBinding.etUnidades.text.toString().toDouble()
+        val unidades = fBinding.etUnits.text.toString()
         val medida = fBinding.etMedida.text.toString()
-        val precio = fBinding.etPrecio.text.toString().toDouble()
-        val total = fBinding.etPrecioT.text.toString().toDouble()
+        val precio = fBinding.etPrice.text.toString()
+        val total = fBinding.etPrecioT.text.toString()
 
-        if (ingrediente.isNotEmpty() && unidades.toString().isNotEmpty() && medida.isNotEmpty() &&
-            precio.toString().isNotEmpty() && total.toString().isNotEmpty()) {
+        if (ingrediente.isNotEmpty() && unidades.isNotEmpty() && medida.isNotEmpty() &&
+            precio.isNotEmpty() && total.isNotEmpty()
+        ) {
             val presupuesto = PresupuestoEntity(
-                0, ingrediente, unidades, medida, precio,
-                total, true
+                0, ingrediente, unidades.toDouble(), medida, precio.toDouble(),
+                total.toDouble(), true
             )
 
             viewModel.agregarPresupuesto(presupuesto)
@@ -66,4 +70,17 @@ class AddPresupuestoFragment : Fragment() {
             ).show()
         }
     }
+
+    private fun calcularTotal() {
+        fBinding.btnCalcular.setOnClickListener {
+            val cant: Double = (etUnits.text.toString()).toDouble()
+            val price: Double = (etPrice.text.toString()).toDouble()
+
+            val total = (cant * price).toString()
+
+            etPrecioT.setText(total)
+        }
+    }
 }
+
+

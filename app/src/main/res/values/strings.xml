@@ -45,4 +45,5 @@
     <string name="editar_presupuesto">Editar Presupuesto</string>
     <string name="precio_unitario">Precio Unitario</string>
     <string name="agregar_presupuesto">Agregar Presupuesto</string>
+    <string name="equals">=</string>
 </resources>
