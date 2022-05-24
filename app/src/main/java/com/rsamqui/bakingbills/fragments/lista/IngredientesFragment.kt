@@ -9,10 +9,19 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.rsamqui.bakingbills.API.ApiService
+import com.rsamqui.bakingbills.API.DataClass.Ingredientes
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.adapters.IngredienteAdapter
+import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
 import com.rsamqui.bakingbills.bd.viewmodels.IngredienteViewModels
 import com.rsamqui.bakingbills.databinding.FragmentIngredientesBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.OkHttpClient
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 class IngredientesFragment : Fragment() {
     lateinit var fBinding: FragmentIngredientesBinding
@@ -39,12 +48,51 @@ class IngredientesFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         setupViews()
+        searchAllIngredientes()
     }
 
     private fun setupViews() {
         with(fBinding) {
             BtnAgregarIngrediente.setOnClickListener {
                 it.findNavController().navigate(R.id.ingredientes_to_add_ingredientes)
+            }
+        }
+    }
+
+    fun getRetrofit(): Retrofit {
+        return Retrofit
+            .Builder()
+            .baseUrl("https://baking-bills-new-api.herokuapp.com/ingrediente/listar/")
+            .client(OkHttpClient())
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+
+    private fun searchAllIngredientes() {
+        var list: ArrayList<Ingredientes>
+        CoroutineScope(Dispatchers.IO).launch {
+            var count:  Int = 0
+            val call = getRetrofit().create(ApiService::class.java).getAllIngredientes()
+
+            list = call
+
+            list.forEach{_ ->
+                run {
+                    for (i in 0..list.lastIndex) {
+                        var id: Int = (list[i].idIngredient?.toInt() ?: Int) as Int
+                        var name: String = list[i].nombre.toString()
+                        var quantity: Double = (list[i].cantidad?.toDouble() ?: Double) as Double
+                        var price: Double = (list[i].precio?.toDouble() ?: Double) as Double
+
+                        val ingrediente = IngredienteEntity(id, name, quantity, price)
+                        count++
+
+                        viewModel.agregarIngrediente(ingrediente)
+                    }
+                }
+                if (count == list.size){
+                    return@launch
+                }
             }
         }
     }
