@@ -157,9 +157,9 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etUnidades" />
 
-        <EditText
-            android:id="@+id/etPrecioT"
-            android:layout_width="350dp"
+        <TextView
+            android:id="@+id/etPrecioTotal"
+            android:layout_width="250dp"
             android:layout_height="60dp"
             android:layout_gravity="center"
             android:layout_marginTop="16dp"
@@ -167,14 +167,41 @@
             android:background="@drawable/custom_input"
             android:drawableStart="@drawable/total"
             android:drawablePadding="12dp"
-            android:hint="@string/precio_total"
             android:inputType="numberDecimal"
             android:paddingStart="12dp"
             android:paddingEnd="12dp"
             android:textColor="@color/black"
             android:textColorHint="#68604A"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.124"
             app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/etPrecio" />
+
+        <TextView
+            android:id="@+id/etPrecioT"
+            android:layout_width="180dp"
+            android:layout_height="wrap_content"
+            android:hint="@string/precio_total"
+            android:textSize="18sp"
+            android:textColor="#68604A"
+            android:textColorHint="#68604A"
+            app:layout_constraintBottom_toBottomOf="@+id/etPrecioTotal"
+            app:layout_constraintEnd_toEndOf="@+id/etPrecioTotal"
+            app:layout_constraintHorizontal_bias="0.685"
+            app:layout_constraintStart_toStartOf="@+id/etPrecioTotal"
+            app:layout_constraintTop_toTopOf="@+id/etPrecioTotal"
+            app:layout_constraintVertical_bias="0.472" />
+
+        <Button
+            android:id="@+id/btnCalcular"
+            android:layout_width="wrap_content"
+            android:layout_height="70dp"
+            android:backgroundTint="#4C4533"
+            android:text="@string/equals"
+            android:textColor="#CDC7B4"
+            app:layout_constraintBottom_toTopOf="@+id/btnEdit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/etPrecioTotal"
             app:layout_constraintTop_toBottomOf="@+id/etPrecio" />
 
         <Button
@@ -182,12 +209,12 @@
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="end"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="28dp"
             android:backgroundTint="#4C4533"
             android:text="@string/volver"
             android:textColor="#CDC7B4"
             app:layout_constraintEnd_toStartOf="@+id/btnEdit"
-            app:layout_constraintHorizontal_bias="0.13"
+            app:layout_constraintHorizontal_bias="0.125"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/etPrecioT" />
 
@@ -196,8 +223,8 @@
             android:layout_width="120dp"
             android:layout_height="60dp"
             android:layout_gravity="start"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="12dp"
+            android:layout_marginTop="28dp"
+            android:layout_marginEnd="16dp"
             android:backgroundTint="#4C4533"
             android:text="@string/editar"
             android:textColor="#CDC7B4"
@@ -208,7 +235,7 @@
             android:id="@+id/deleteBudget"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="8dp"
+            android:layout_marginTop="28dp"
             android:backgroundTint="#AC9A75"
             android:src="@drawable/delete"
             android:tint="@color/white"

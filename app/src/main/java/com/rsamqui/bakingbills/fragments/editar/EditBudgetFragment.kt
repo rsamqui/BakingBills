@@ -12,6 +12,7 @@ import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.entidades.PresupuestoEntity
 import com.rsamqui.bakingbills.bd.viewmodels.PresupuestoViewModels
 import com.rsamqui.bakingbills.databinding.FragmentEditBudgetBinding
+import kotlinx.android.synthetic.main.fragment_edit_budget.*
 
 class EditBudgetFragment : Fragment() {
 
@@ -49,6 +50,12 @@ class EditBudgetFragment : Fragment() {
             fBinding.deleteBudget.setOnClickListener{
                 deletePresupuesto()
             }
+
+            fBinding.btnEdit.setOnClickListener{
+                asegurarEdicion()
+            }
+
+            calcularTotal()
 
         }
         setHasOptionsMenu(true)
@@ -125,5 +132,49 @@ class EditBudgetFragment : Fragment() {
         alerta.setTitle("Eliminando ${args.currentBudget.ingrediente}")
         alerta.setMessage("¿Esta seguro de eliminar a ${args.currentBudget.ingrediente}?")
         alerta.create().show()
+    }
+
+    private fun asegurarEdicion(){
+        val alert = AlertDialog.Builder(requireContext())
+        alert.setPositiveButton("He terminado") {_, _ ->
+            Toast.makeText(
+                requireContext(),
+                "Regsitro editado satisfactoriamente...",
+            Toast.LENGTH_LONG
+            ).show()
+            findNavController().navigate(R.id.edit_budget_to_budget)
+        }
+        alert.setNegativeButton("Volver a edicion") {_, _ ->
+            Toast.makeText(
+                requireContext(),
+                "Operación cancelada...",
+                Toast.LENGTH_LONG
+            ).show()
+        }
+        alert.setTitle("Editando ${args.currentBudget.ingrediente}")
+        alert.setMessage("¿Ha terminado de editar el presupuesto de ${args.currentBudget.ingrediente}? ¡Recuerda recalcular el precio total si editaste unidades o precio!")
+        alert.create().show()
+    }
+
+    private fun calcularTotal(){
+        fBinding.btnCalcular.setOnClickListener{
+            val cant = (etUnidades.text.toString())
+            val price = (etPrecio.text.toString())
+
+            if (cant.isNotEmpty() && price.isNotEmpty()) {
+
+                val total = (cant.toDouble() * price.toDouble()).toString()
+                etPrecioT.setText(total)
+                Toast.makeText(
+                    requireContext(), "Total calculado",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                Toast.makeText(
+                    requireContext(), "Debe rellenar todos los campos",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
     }
 }

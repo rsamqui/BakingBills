@@ -71,14 +71,27 @@ class AddPresupuestoFragment : Fragment() {
         }
     }
 
+
+
     private fun calcularTotal() {
         fBinding.btnCalcular.setOnClickListener {
-            val cant: Double = (etUnits.text.toString()).toDouble()
-            val price: Double = (etPrice.text.toString()).toDouble()
+            val cant = (etUnits.text.toString())
+            val price = (etPrice.text.toString())
 
-            val total = (cant * price).toString()
+            if (cant.isNotEmpty() && price.isNotEmpty()) {
 
-            etPrecioT.setText(total)
+                val total = (cant.toDouble() * price.toDouble()).toString()
+                etPrecioT.setText(total)
+                Toast.makeText(
+                    requireContext(), "Total calculado",
+                    Toast.LENGTH_LONG
+                ).show()
+            } else {
+                Toast.makeText(
+                    requireContext(), "Debe rellenar todos los campos",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
 }

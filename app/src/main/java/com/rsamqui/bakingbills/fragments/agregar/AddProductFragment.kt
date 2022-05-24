@@ -46,7 +46,7 @@ class AddProductFragment : Fragment() {
         val precio = fBinding.etPrecio.text.toString()
         val peso = fBinding.etPeso.text.toString()
 
-        if (nombre.isNotEmpty() && descripcion.isNotEmpty() && cantidad.toString().isNotEmpty() &&
+        if (nombre.isNotEmpty() && descripcion.isNotEmpty() && cantidad.isNotEmpty() &&
             precio.isNotEmpty() && peso.isNotEmpty()) {
             val producto = ProductoEntity(
                 0, nombre, descripcion, cantidad.toDouble(), precio.toDouble(),
