@@ -42,8 +42,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|right"
         android:clickable="true"
+        app:shapeAppearanceOverlay="@style/FabStyle"
         android:src="@drawable/add"
-        android:backgroundTint="#65604F"
+        android:backgroundTint="#8A7D63"
         tools:ignore="ContentDescription,KeyboardInaccessibleWidget,
         RtlHardcoded" />
 

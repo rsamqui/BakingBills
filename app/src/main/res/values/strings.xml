@@ -46,4 +46,5 @@
     <string name="precio_unitario">Precio Unitario</string>
     <string name="agregar_presupuesto">Agregar Presupuesto</string>
     <string name="equals">=</string>
+    <string name="by_ram_inc">By RAM INC.</string>
 </resources>
