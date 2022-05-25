@@ -11,6 +11,7 @@ import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.rsamqui.bakingbills.API.ApiService
 import com.rsamqui.bakingbills.API.DataClass.Ingredientes
+import com.rsamqui.bakingbills.API.Network.Common
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.adapters.IngredienteAdapter
 import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
@@ -26,6 +27,7 @@ import retrofit2.converter.gson.GsonConverterFactory
 class IngredientesFragment : Fragment() {
     lateinit var fBinding: FragmentIngredientesBinding
 
+    private lateinit var API: ApiService
     private lateinit var viewModel : IngredienteViewModels
 
     override fun onCreateView(
@@ -42,6 +44,7 @@ class IngredientesFragment : Fragment() {
         })
 
         setHasOptionsMenu(true)
+        API = Common.retrofitService
         return fBinding.root
     }
 
@@ -59,30 +62,21 @@ class IngredientesFragment : Fragment() {
         }
     }
 
-    fun getRetrofit(): Retrofit {
-        return Retrofit
-            .Builder()
-            .baseUrl("https://baking-bills-new-api.herokuapp.com/ingrediente/listar/")
-            .client(OkHttpClient())
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-    }
-
     private fun searchAllIngredientes() {
         var list: ArrayList<Ingredientes>
         CoroutineScope(Dispatchers.IO).launch {
             var count:  Int = 0
-            val call = getRetrofit().create(ApiService::class.java).getAllIngredientes()
+            val call = API.getAllIngredientes()
 
             list = call
 
             list.forEach{_ ->
                 run {
                     for (i in 0..list.lastIndex) {
-                        var id: Int = (list[i].idIngredient?.toInt() ?: Int) as Int
+                        var id: Int = (list[i].idIngredient ?: Int) as Int
                         var name: String = list[i].nombre.toString()
-                        var quantity: Double = (list[i].cantidad?.toDouble() ?: Double) as Double
-                        var price: Double = (list[i].precio?.toDouble() ?: Double) as Double
+                        var quantity: Double = (list[i].cantidad ?: Double) as Double
+                        var price: Double = (list[i].precio ?: Double) as Double
 
                         val ingrediente = IngredienteEntity(id, name, quantity, price)
                         count++

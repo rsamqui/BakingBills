@@ -12,13 +12,13 @@ import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("ingrediente/listar")
+    @GET("ingrediente/listar/")
     suspend fun getAllIngredientes (): ArrayList<Ingredientes>
-    @GET("producto/listar")
+    @GET("producto/listar/")
     suspend fun getAllProductos (): ArrayList<Productos>
-    @GET("usuario/listar")
+    @GET("usuario/listar/")
     suspend fun getAllUsuarios (): ArrayList<Usuarios>
-    @GET("presupuesto/listar")
+    @GET("presupuesto/listar/")
     suspend fun getAllPresupuesto (): ArrayList<Presupuesto>
 
     @POST("ingrediente/agregar")
