@@ -1,5 +1,6 @@
 package com.rsamqui.bakingbills.API
 
+import androidx.room.Update
 import com.rsamqui.bakingbills.API.DataClass.Ingredientes
 import com.rsamqui.bakingbills.API.DataClass.Productos
 import com.rsamqui.bakingbills.API.DataClass.Usuarios
@@ -21,31 +22,31 @@ interface ApiService {
     @GET("presupuesto/listar/")
     suspend fun getAllPresupuesto (): ArrayList<Presupuesto>
 
-    @POST("ingrediente/agregar")
+    @POST("ingrediente/agregar/")
     suspend fun addIngrediente(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("producto/agregar")
+    @POST("producto/agregar/")
     suspend fun addProducto(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("usuario/agregar")
+    @POST("usuario/agregar/")
     suspend fun addUsuario(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("presupuesto/agregar")
+    @POST("presupuesto/agregar/")
     suspend fun addPresupuesto(@Body requestBody: RequestBody): Response<ResponseBody>
 
-    @POST("ingrediente/actualizar")
+    @POST("ingrediente/actualizar/")
     suspend fun editIngrediente(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("producto/actualizar")
+    @POST("producto/actualizar/")
     suspend fun editProducto(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("usuario/actualizar")
+    @POST("usuario/actualizar/")
     suspend fun editUsuario(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("presupuesto/actualizar")
+    @POST("presupuesto/actualizar/")
     suspend fun editPresupuesto(@Body requestBody: RequestBody): Response<ResponseBody>
 
     @DELETE("ingrediente/eliminar/{idIngrediente}")
-    suspend fun delIngrediente(@Path("idIngrediente") id: Int?): Response<Void>
+    suspend fun delIngrediente(@Path("idIngrediente") idI: Int?): Response<Void>
     @DELETE("producto/eliminar/{idProducto}")
-    suspend fun delProducto(@Path("idProducto") id: Int?): Response<Void>
+    suspend fun delProducto(@Path("idProducto") idP: Int?): Response<Void>
     @DELETE("usuario/eliminar/{idUsuario}")
-    suspend fun delUsuario(@Path("idUsuario") id: Int?): Response<Void>
+    suspend fun delUsuario(@Path("idUsuario") idU: Int?): Response<Void>
     @DELETE("presupuesto/eliminar/{idIngrediente}")
-    suspend fun delPresupuesto(@Path("idPresupuesto") id: Int?): Response<Void>
+    suspend fun delPresupuesto(@Path("idPresupuesto") idB: Int?): Response<Void>
 
 }

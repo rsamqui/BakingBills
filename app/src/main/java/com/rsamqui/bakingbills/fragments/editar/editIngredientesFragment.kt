@@ -8,6 +8,7 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.rsamqui.bakingbills.API.DataClass.Ingredientes
 import com.rsamqui.bakingbills.API.ApiService
 import com.rsamqui.bakingbills.API.Network.Common
 import com.rsamqui.bakingbills.R
@@ -67,7 +68,7 @@ class editIngredientesFragment : Fragment() {
             if (fBinding.etNombre.text.isNotEmpty() && fBinding.etMedida.text.isNotEmpty() && fBinding.etPrecio.text.isNotEmpty()) {
                 CoroutineScope(Dispatchers.IO).launch {
                     API.editIngrediente(requestBody)
-                    var ingrediente = IngredienteEntity(0, name, quantity.toDouble(), price.toDouble())
+                    var ingrediente = IngredienteEntity(args.currentIngrediente.idIngrediente, name, quantity.toDouble(), price.toDouble())
                     viewModel.actualizarIngrediente(ingrediente)
                 }
                 Toast.makeText(
@@ -102,10 +103,28 @@ class editIngredientesFragment : Fragment() {
         return super.onOptionsItemSelected(item)
     }
 
+    private fun ApiDelIngrediente(id: Int){
+        CoroutineScope(Dispatchers.IO).launch {
+            API.delIngrediente(id)
+        }
+    }
+
     private fun delIngrediente() {
+        val name = fBinding.etNombre.text.toString()
+        val quantity = fBinding.etMedida.text.toString()
+        val price = fBinding.etPrecio.text.toString()
+
+        val jsonObject = JSONObject()
+        jsonObject.put("idIngrediente", id)
+        jsonObject.put("nombre", "$name")
+        jsonObject.put("cantidad", quantity)
+        jsonObject.put("precio", price)
+
         val alerta = AlertDialog.Builder(requireContext())
         alerta.setPositiveButton("Si") { _, _ ->
-            viewModel.eliminarIngrediente(args.currentIngrediente)
+            var ingrediente = IngredienteEntity(args.currentIngrediente.idIngrediente, name, quantity.toDouble(), price.toDouble())
+                viewModel.eliminarIngrediente(ingrediente)
+                ApiDelIngrediente(args.currentIngrediente.idIngrediente)
             Toast.makeText(
                 requireContext(),
                 "Registro eliminado satisfactoriamente...",
@@ -116,7 +135,7 @@ class editIngredientesFragment : Fragment() {
         alerta.setNegativeButton("No") { _, _ ->
             Toast.makeText(
                 requireContext(),
-                "Operación cancelada...",
+                "Eliminación cancelada",
                 Toast.LENGTH_LONG
             ).show()
         }
