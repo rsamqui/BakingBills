@@ -8,13 +8,22 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
+import com.rsamqui.bakingbills.API.ApiService
+import com.rsamqui.bakingbills.API.Network.Common
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
 import com.rsamqui.bakingbills.bd.viewmodels.IngredienteViewModels
 import com.rsamqui.bakingbills.databinding.FragmentEditIngredientesBinding
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
 
 class editIngredientesFragment : Fragment() {
 
+    private lateinit var API: ApiService
     lateinit var fBinding: FragmentEditIngredientesBinding
     private val args by navArgs<editIngredientesFragmentArgs>()
     private lateinit var viewModel: IngredienteViewModels
@@ -36,6 +45,7 @@ class editIngredientesFragment : Fragment() {
             }
         }
         setHasOptionsMenu(true)
+        API = Common.retrofitService
         return fBinding.root
     }
 
@@ -44,19 +54,37 @@ class editIngredientesFragment : Fragment() {
         val quantity = fBinding.etMedida.text.toString()
         val price = fBinding.etPrecio.text.toString()
 
-        if(name.isNotEmpty() && quantity.isNotEmpty() && price.isNotEmpty())
-        {
-            val ingrediente = IngredienteEntity(args.currentIngrediente.idIngrediente,
-                name, quantity.toDouble(), price.toDouble(),)
+        val jsonObject = JSONObject()
+        jsonObject.put("idIngrediente", id)
+        jsonObject.put("nombre", "$name")
+        jsonObject.put("cantidad", quantity)
+        jsonObject.put("precio", price)
 
-            viewModel.actualizarIngrediente(ingrediente)
-            Toast.makeText(requireContext(), "Registro actualizado",
-                Toast.LENGTH_LONG).show()
-            findNavController().navigate(R.id.edit_ingredientes_to_ingredientes)
-        }
-        else
-        {
-            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+        val jsonObjectString = jsonObject.toString()
+        val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
+
+        try {
+            if (fBinding.etNombre.text.isNotEmpty() && fBinding.etMedida.text.isNotEmpty() && fBinding.etPrecio.text.isNotEmpty()) {
+                CoroutineScope(Dispatchers.IO).launch {
+                    API.editIngrediente(requestBody)
+                    var ingrediente = IngredienteEntity(0, name, quantity.toDouble(), price.toDouble())
+                    viewModel.actualizarIngrediente(ingrediente)
+                }
+                Toast.makeText(
+                    requireContext(), "Registro actualizado",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                findNavController().navigate(R.id.edit_ingredientes_to_ingredientes)
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Debe rellenar todos los campos",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        } catch (e: Exception) {
+
         }
     }
 

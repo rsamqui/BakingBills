@@ -23,6 +23,7 @@ import kotlinx.coroutines.launch
 import okhttp3.MediaType.Companion.toMediaTypeOrNull
 import okhttp3.RequestBody.Companion.toRequestBody
 import org.json.JSONObject
+import java.lang.Exception
 
 class addIngredientsFragment : Fragment() {
     private lateinit var API: ApiService
@@ -34,7 +35,7 @@ class addIngredientsFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(IngredienteViewModels::class.java)
         checkInternet()
         fBinding.btnAgregar.setOnClickListener {
-            guardarRegistroOffline()
+            guardarRegistro()
         }
         fBinding.btnVolver.setOnClickListener {
             findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
@@ -58,20 +59,33 @@ class addIngredientsFragment : Fragment() {
 
         val jsonObjectString = jsonObject.toString()
         val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
-        val BD: BDPanaderia = BDPanaderia.getInstance(requireContext().applicationContext)
-        CoroutineScope(Dispatchers.IO).launch {
-            API.addIngrediente(requestBody)
 
-            var ingrediente = IngredienteEntity(0, name, quantity.toDouble(), price.toDouble())
+        try {
+            if (fBinding.etNombre.text.isNotEmpty() && fBinding.etMedida.text.isNotEmpty() && fBinding.etPrecio.text.isNotEmpty()) {
+                CoroutineScope(Dispatchers.IO).launch {
+                    API.addIngrediente(requestBody)
 
-            viewModel.agregarIngrediente(ingrediente)
+                    var ingrediente =
+                        IngredienteEntity(0, name, quantity.toDouble(), price.toDouble())
+
+                    viewModel.agregarIngrediente(ingrediente)
+                }
+                Toast.makeText(
+                    requireContext(), "Registro guardado",
+                    Toast.LENGTH_LONG
+                ).show()
+
+                findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Debe rellenar todos los campos",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        } catch (e: Exception) {
+
         }
-        Toast.makeText(
-            requireContext(), "Registro actualizado",
-            Toast.LENGTH_LONG
-        ).show()
-
-        findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
     }
 
     fun checkInternet(){
@@ -104,17 +118,21 @@ class addIngredientsFragment : Fragment() {
                             val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
                             println("Antes de enviar")
 
-                            var ingrediente = IngredienteEntity(id, name, quantity, price)
-                            CoroutineScope(Dispatchers.IO).launch {
-                                viewModel.eliminarIngrediente(ingrediente)
+                            if(fBinding.etNombre.text.isEmpty() && fBinding.etMedida.text.toString().isEmpty() && fBinding.etPrecio.text.toString().isEmpty()) {
+                                Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
+                            } else {
+                                var ingrediente = IngredienteEntity(id, name, quantity, price)
+                                CoroutineScope(Dispatchers.IO).launch {
+                                    viewModel.eliminarIngrediente(ingrediente)
 
-                                API.addIngrediente(requestBody)
+                                    API.addIngrediente(requestBody)
+                                }
+                            }
                             }
 
                         }
                     }
                 }
-            }
             else {
                 Toast.makeText(
                     requireContext(),
@@ -130,15 +148,11 @@ class addIngredientsFragment : Fragment() {
         networkConnection.observe(viewLifecycleOwner) { isConnected ->
             if(isConnected) {
                 guardarRegistro()
-                return@observe
             } else {
-                val id: Int = 0
                 val nombre = fBinding.etNombre.text.toString()
                 val cantidad = fBinding.etMedida.text.toString()
                 val precio = fBinding.etPrecio.text.toString()
 
-                val BD: BDPanaderia = BDPanaderia.getInstance(requireContext().applicationContext)
-                val daoI: IngredienteDao = BD.ingredienteDao()
                 var ingrediente = IngredienteEntity(0, nombre, cantidad.toDouble(), precio.toDouble())
                 CoroutineScope(Dispatchers.IO).launch {
 
