@@ -11,6 +11,7 @@ import androidx.navigation.fragment.navArgs
 import com.rsamqui.bakingbills.API.DataClass.Ingredientes
 import com.rsamqui.bakingbills.API.ApiService
 import com.rsamqui.bakingbills.API.Network.Common
+import com.rsamqui.bakingbills.API.Network.NetworkConnection
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
 import com.rsamqui.bakingbills.bd.viewmodels.IngredienteViewModels
@@ -36,13 +37,13 @@ class editIngredientesFragment : Fragment() {
             etMedida.setText(args.currentIngrediente.cantidad.toString())
             etPrecio.setText(args.currentIngrediente.precio.toString())
             btnEditar.setOnClickListener {
-                GuardarCambios()
+                checkInternet()
             }
             fBinding.btnVolver.setOnClickListener {
                 findNavController().navigate(R.id.edit_ingredientes_to_ingredientes)
             }
             fBinding.deleteIngrediente.setOnClickListener{
-                delIngrediente()
+                checkInternetDel()
             }
         }
         setHasOptionsMenu(true)
@@ -68,9 +69,9 @@ class editIngredientesFragment : Fragment() {
             if (fBinding.etNombre.text.isNotEmpty() && fBinding.etMedida.text.isNotEmpty() && fBinding.etPrecio.text.isNotEmpty()) {
                 CoroutineScope(Dispatchers.IO).launch {
                     API.editIngrediente(requestBody)
-                    var ingrediente = IngredienteEntity(args.currentIngrediente.idIngrediente, name, quantity.toDouble(), price.toDouble())
-                    viewModel.actualizarIngrediente(ingrediente)
                 }
+                var ingrediente = IngredienteEntity(args.currentIngrediente.idIngrediente, name, quantity.toDouble(), price.toDouble())
+                viewModel.actualizarIngrediente(ingrediente)
                 Toast.makeText(
                     requireContext(), "Registro actualizado",
                     Toast.LENGTH_LONG
@@ -101,6 +102,28 @@ class editIngredientesFragment : Fragment() {
             delIngrediente()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    private fun checkInternet(){
+        val networkConnection = NetworkConnection(requireContext())
+        networkConnection.observe(viewLifecycleOwner) { isConnected ->
+            if(isConnected) {
+                GuardarCambios()
+            } else{
+                Toast.makeText(requireContext(), "No hay conexión a Internet, no puede editar ni eliminar datos", Toast.LENGTH_LONG).show()
+            }
+        }
+    }
+
+    private fun checkInternetDel(){
+        val networkConnection = NetworkConnection(requireContext())
+        networkConnection.observe(viewLifecycleOwner) { isConnected ->
+            if(isConnected) {
+                delIngrediente()
+            } else{
+                Toast.makeText(requireContext(), "No hay conexión a Internet, no puede editar ni eliminar datos", Toast.LENGTH_LONG).show()
+            }
+        }
     }
 
     private fun ApiDelIngrediente(id: Int){

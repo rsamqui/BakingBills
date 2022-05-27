@@ -12,6 +12,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.rsamqui.bakingbills.API.ApiService
 import com.rsamqui.bakingbills.API.DataClass.Ingredientes
 import com.rsamqui.bakingbills.API.Network.Common
+import com.rsamqui.bakingbills.API.Network.NetworkConnection
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.adapters.IngredienteAdapter
 import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
@@ -50,14 +51,25 @@ class IngredientesFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        checkInternet()
         setupViews()
-        searchAllIngredientes()
     }
 
     private fun setupViews() {
         with(fBinding) {
             BtnAgregarIngrediente.setOnClickListener {
                 it.findNavController().navigate(R.id.ingredientes_to_add_ingredientes)
+            }
+        }
+    }
+
+    private fun checkInternet(){
+        val networkConnection = NetworkConnection(requireContext())
+        networkConnection.observe(viewLifecycleOwner) { isConnected ->
+            if(isConnected) {
+                searchAllIngredientes()
+            } else{
+                Toast.makeText(requireContext(), "No hay conexión a Internet", Toast.LENGTH_LONG).show()
             }
         }
     }

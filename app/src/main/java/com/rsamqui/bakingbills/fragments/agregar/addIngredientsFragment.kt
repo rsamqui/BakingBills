@@ -35,7 +35,7 @@ class addIngredientsFragment : Fragment() {
         viewModel = ViewModelProvider(this).get(IngredienteViewModels::class.java)
         checkInternet()
         fBinding.btnAgregar.setOnClickListener {
-            guardarRegistro()
+            guardarRegistroOffline()
         }
         fBinding.btnVolver.setOnClickListener {
             findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
@@ -80,7 +80,7 @@ class addIngredientsFragment : Fragment() {
                 Toast.makeText(
                     requireContext(),
                     "Debe rellenar todos los campos",
-                    Toast.LENGTH_LONG
+                    Toast.LENGTH_SHORT
                 ).show()
             }
         } catch (e: Exception) {
@@ -101,8 +101,8 @@ class addIngredientsFragment : Fragment() {
                     var ingredientesSize = ingredientes.size
                     var ingredientesApiSize = ingredientesApi.size
 
-                    if(ingredientesSize > ingredientesApiSize) {
-                        for(i in 0..ingredientes.lastIndex){
+                    if (ingredientesSize > ingredientesApiSize) {
+                        for (i in 0..ingredientes.lastIndex) {
                             var id: Int = ingredientes[i].idIngrediente
                             var name: String = ingredientes[i].nombre
                             var quantity: Double = ingredientes[i].cantidad
@@ -116,29 +116,20 @@ class addIngredientsFragment : Fragment() {
 
                             val jsonObjectString = jsonObject.toString()
                             val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
-                            println("Antes de enviar")
 
-                            if(fBinding.etNombre.text.isEmpty() && fBinding.etMedida.text.toString().isEmpty() && fBinding.etPrecio.text.toString().isEmpty()) {
-                                Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG).show()
-                            } else {
-                                var ingrediente = IngredienteEntity(id, name, quantity, price)
-                                CoroutineScope(Dispatchers.IO).launch {
-                                    viewModel.eliminarIngrediente(ingrediente)
+                            var ingrediente = IngredienteEntity(id, name, quantity, price)
+                            CoroutineScope(Dispatchers.IO).launch {
+                                viewModel.eliminarIngrediente(ingrediente)
 
-                                    API.addIngrediente(requestBody)
-                                }
+                                API.addIngrediente(requestBody)
                             }
-                            }
-
                         }
                     }
+
                 }
+            }
             else {
-                Toast.makeText(
-                    requireContext(),
-                    "No internet connection",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(requireContext(),"No hay conexión a Internet", Toast.LENGTH_SHORT).show()
             }
         }
     }
@@ -155,22 +146,14 @@ class addIngredientsFragment : Fragment() {
 
                 var ingrediente = IngredienteEntity(0, nombre, cantidad.toDouble(), precio.toDouble())
                 CoroutineScope(Dispatchers.IO).launch {
-
-                    println("A")
-
                     viewModel.agregarIngrediente(ingrediente)
                 }
-                Toast.makeText(
-                    requireContext(), "Guardado localmente",
-                    Toast.LENGTH_LONG
-                ).show()
+                Toast.makeText(requireContext(), "Guardado localmente", Toast.LENGTH_LONG).show()
 
                 findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
 
                 Toast.makeText(
-                    requireContext(),"No internet connection",
-                    Toast.LENGTH_LONG
-                ).show()
+                    requireContext(),"No hay conexión a Internet", Toast.LENGTH_SHORT).show()
             }
         }
     }
