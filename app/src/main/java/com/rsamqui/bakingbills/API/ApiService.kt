@@ -31,7 +31,7 @@ interface ApiService {
     @POST("presupuesto/agregar/")
     suspend fun addPresupuesto(@Body requestBody: RequestBody): Response<ResponseBody>
 
-    @POST("ingrediente/actualizar")
+    @POST("ingrediente/actualizar/")
     suspend fun editIngrediente(@Body requestBody: RequestBody): Response<ResponseBody>
     @POST("producto/actualizar/")
     suspend fun editProducto(@Body requestBody: RequestBody): Response<ResponseBody>
