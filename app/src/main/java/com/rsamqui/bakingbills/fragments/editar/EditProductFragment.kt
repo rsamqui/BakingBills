@@ -69,8 +69,7 @@ class EditProductFragment : Fragment() {
                 descripcion,
                 cantidad.toDouble(),
                 precio.toDouble(),
-                peso.toDouble(),
-                true
+                peso.toDouble()
             )
 
             viewModel.actualizarProducto(product)

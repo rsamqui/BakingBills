@@ -20,7 +20,5 @@ data class PresupuestoEntity(
     @ColumnInfo(name = "precio")
     val precio: Double,
     @ColumnInfo(name = "total")
-    val total: Double,
-    @ColumnInfo(name = "activo")
-    val activo: Boolean
+    val total: Double
 ) : Parcelable

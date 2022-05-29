@@ -78,8 +78,7 @@ class EditBudgetFragment : Fragment() {
                 unidades.toDouble(),
                 medida,
                 precio.toDouble(),
-                total.toDouble(),
-                true
+                total.toDouble()
             )
 
             viewModel.actualizarPresupuesto(budget)
