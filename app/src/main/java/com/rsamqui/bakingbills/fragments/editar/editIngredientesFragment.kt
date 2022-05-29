@@ -55,10 +55,11 @@ class editIngredientesFragment : Fragment() {
         val name = fBinding.etNombre.text.toString()
         val quantity = fBinding.etMedida.text.toString()
         val price = fBinding.etPrecio.text.toString()
+        val id = args.currentIngrediente.idIngrediente
 
         val jsonObject = JSONObject()
         jsonObject.put("idIngrediente", id)
-        jsonObject.put("nombre", "$name")
+        jsonObject.put("nombre", name)
         jsonObject.put("cantidad", quantity)
         jsonObject.put("precio", price)
 
@@ -70,11 +71,11 @@ class editIngredientesFragment : Fragment() {
                 CoroutineScope(Dispatchers.IO).launch {
                     API.editIngrediente(requestBody)
                 }
-                var ingrediente = IngredienteEntity(args.currentIngrediente.idIngrediente, name, quantity.toDouble(), price.toDouble())
+                var ingrediente = IngredienteEntity(id, name, quantity.toDouble(), price.toDouble())
                 viewModel.actualizarIngrediente(ingrediente)
                 Toast.makeText(
                     requireContext(), "Registro actualizado",
-                    Toast.LENGTH_LONG
+                    Toast.LENGTH_SHORT
                 ).show()
 
                 findNavController().navigate(R.id.edit_ingredientes_to_ingredientes)
@@ -82,7 +83,7 @@ class editIngredientesFragment : Fragment() {
                 Toast.makeText(
                     requireContext(),
                     "Debe rellenar todos los campos",
-                    Toast.LENGTH_LONG
+                    Toast.LENGTH_SHORT
                 ).show()
             }
         } catch (e: Exception) {
@@ -150,8 +151,8 @@ class editIngredientesFragment : Fragment() {
                 ApiDelIngrediente(args.currentIngrediente.idIngrediente)
             Toast.makeText(
                 requireContext(),
-                "Registro eliminado satisfactoriamente...",
-                Toast.LENGTH_LONG
+                "Registro eliminado",
+                Toast.LENGTH_SHORT
             ).show()
             findNavController().navigate(R.id.edit_ingredientes_to_ingredientes)
         }
@@ -159,7 +160,7 @@ class editIngredientesFragment : Fragment() {
             Toast.makeText(
                 requireContext(),
                 "Eliminación cancelada",
-                Toast.LENGTH_LONG
+                Toast.LENGTH_SHORT
             ).show()
         }
         alerta.setTitle("Eliminando ${args.currentIngrediente.nombre}")

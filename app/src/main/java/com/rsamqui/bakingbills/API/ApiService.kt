@@ -1,43 +1,41 @@
 package com.rsamqui.bakingbills.API
 
-import androidx.room.Update
 import com.rsamqui.bakingbills.API.DataClass.Ingredientes
 import com.rsamqui.bakingbills.API.DataClass.Productos
 import com.rsamqui.bakingbills.API.DataClass.Usuarios
 import com.rsamqui.bakingbills.API.DataClass.Presupuesto
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
-import retrofit2.Call
 import retrofit2.Response
 import retrofit2.http.*
 
 interface ApiService {
 
-    @GET("ingrediente/listar/")
+    @GET("ingrediente/listar")
     suspend fun getAllIngredientes (): ArrayList<Ingredientes>
-    @GET("producto/listar/")
+    @GET("producto/listar")
     suspend fun getAllProductos (): ArrayList<Productos>
-    @GET("usuario/listar/")
+    @GET("usuario/listar")
     suspend fun getAllUsuarios (): ArrayList<Usuarios>
-    @GET("presupuesto/listar/")
+    @GET("presupuesto/listar")
     suspend fun getAllPresupuesto (): ArrayList<Presupuesto>
 
-    @POST("ingrediente/agregar/")
+    @POST("ingrediente/agregar")
     suspend fun addIngrediente(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("producto/agregar/")
+    @POST("producto/agregar")
     suspend fun addProducto(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("usuario/agregar/")
+    @POST("usuario/agregar")
     suspend fun addUsuario(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("presupuesto/agregar/")
+    @POST("presupuesto/agregar")
     suspend fun addPresupuesto(@Body requestBody: RequestBody): Response<ResponseBody>
 
-    @POST("ingrediente/actualizar/")
+    @POST("ingrediente/agregar")
     suspend fun editIngrediente(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("producto/actualizar/")
+    @POST("producto/agregar")
     suspend fun editProducto(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("usuario/actualizar/")
+    @POST("usuario/agregar")
     suspend fun editUsuario(@Body requestBody: RequestBody): Response<ResponseBody>
-    @POST("presupuesto/actualizar/")
+    @POST("presupuesto/agregar")
     suspend fun editPresupuesto(@Body requestBody: RequestBody): Response<ResponseBody>
 
     @DELETE("ingrediente/eliminar/{idIngrediente}")

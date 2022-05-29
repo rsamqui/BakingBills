@@ -24,6 +24,7 @@ import kotlinx.coroutines.launch
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
+import java.lang.Exception
 
 class IngredientesFragment : Fragment() {
     lateinit var fBinding: FragmentIngredientesBinding
@@ -66,11 +67,16 @@ class IngredientesFragment : Fragment() {
     private fun checkInternet(){
         val networkConnection = NetworkConnection(requireContext())
         networkConnection.observe(viewLifecycleOwner) { isConnected ->
-            if(isConnected) {
-                searchAllIngredientes()
-            } else{
-                Toast.makeText(requireContext(), "No hay conexión a Internet", Toast.LENGTH_LONG).show()
+            try {
+                if(isConnected) {
+                    searchAllIngredientes()
+                } else{
+                    Toast.makeText(requireContext(), "No hay conexión a Internet", Toast.LENGTH_LONG).show()
+                }
+            } catch (e: Exception) {
+
             }
+
         }
     }
 

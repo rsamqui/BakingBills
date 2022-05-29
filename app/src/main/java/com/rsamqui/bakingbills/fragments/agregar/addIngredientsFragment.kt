@@ -29,6 +29,7 @@ class addIngredientsFragment : Fragment() {
     private lateinit var API: ApiService
     lateinit var fBinding: FragmentAddIngredientesBinding
     private lateinit var viewModel: IngredienteViewModels
+    private var count = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         fBinding = FragmentAddIngredientesBinding.inflate(layoutInflater)
@@ -41,6 +42,7 @@ class addIngredientsFragment : Fragment() {
             findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
         }
         API = Common.retrofitService
+        count = 0
         return fBinding.root
     }
 
@@ -63,7 +65,9 @@ class addIngredientsFragment : Fragment() {
         try {
             if (fBinding.etNombre.text.isNotEmpty() && fBinding.etMedida.text.isNotEmpty() && fBinding.etPrecio.text.isNotEmpty()) {
                 CoroutineScope(Dispatchers.IO).launch {
-                    API.addIngrediente(requestBody)
+                    if(count == 0) {
+                        API.addIngrediente(requestBody)
+                    }
 
                     var ingrediente =
                         IngredienteEntity(0, name, quantity.toDouble(), price.toDouble())
@@ -137,23 +141,28 @@ class addIngredientsFragment : Fragment() {
     private fun guardarRegistroOffline() {
         val networkConnection = NetworkConnection(requireContext())
         networkConnection.observe(viewLifecycleOwner) { isConnected ->
-            if(isConnected) {
-                guardarRegistro()
-            } else {
-                val nombre = fBinding.etNombre.text.toString()
-                val cantidad = fBinding.etMedida.text.toString()
-                val precio = fBinding.etPrecio.text.toString()
+            try {
+                if(isConnected) {
+                    guardarRegistro()
+                    count = 4
+                } else {
+                    val nombre = fBinding.etNombre.text.toString()
+                    val cantidad = fBinding.etMedida.text.toString()
+                    val precio = fBinding.etPrecio.text.toString()
 
-                var ingrediente = IngredienteEntity(0, nombre, cantidad.toDouble(), precio.toDouble())
-                CoroutineScope(Dispatchers.IO).launch {
-                    viewModel.agregarIngrediente(ingrediente)
+                    var ingrediente = IngredienteEntity(0, nombre, cantidad.toDouble(), precio.toDouble())
+                    CoroutineScope(Dispatchers.IO).launch {
+                        viewModel.agregarIngrediente(ingrediente)
+                    }
+                    Toast.makeText(requireContext(), "Guardado localmente", Toast.LENGTH_LONG).show()
+
+                    findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
+
+                    Toast.makeText(
+                        requireContext(),"No hay conexión a Internet", Toast.LENGTH_SHORT).show()
                 }
-                Toast.makeText(requireContext(), "Guardado localmente", Toast.LENGTH_LONG).show()
+            } catch (e: Exception) {
 
-                findNavController().navigate(R.id.add_ingredientes_to_ingredientes)
-
-                Toast.makeText(
-                    requireContext(),"No hay conexión a Internet", Toast.LENGTH_SHORT).show()
             }
         }
     }
