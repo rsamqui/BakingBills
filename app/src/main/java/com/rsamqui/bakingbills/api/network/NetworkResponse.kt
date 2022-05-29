@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.API.Network
+package com.rsamqui.bakingbills.api.network
 
 import java.io.IOException
 

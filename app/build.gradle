@@ -40,8 +40,7 @@ dependencies {
 
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation 'com.google.ar.sceneform:filament-android:1.17.1'
-    def material_version = "1.5.0", life_cycle = "2.4.1", nav = "2.4.2",
-        retrofit_version = "2.9.0", room_version = "2.4.2", recyclerview_version = "1.2.1",
+    def material_version = "1.5.0", life_cycle = "2.4.1", nav = "2.4.2", room_version = "2.4.2", recyclerview_version = "1.2.1",
         recyclerview_selection_version = "1.1.0", coroutines_version = "1.6.1", lottieVersion = "3.4.0",
         rounded_images = "3.1.0"
 
@@ -70,10 +69,10 @@ dependencies {
     implementation "androidx.room:room-runtime:$room_version"
 
     //Retrofit
-    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
-    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
     implementation 'com.google.code.gson:gson:2.8.9'
     implementation 'com.squareup.okhttp3:okhttp:4.9.0'
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
 
     //Navigation
     implementation "androidx.navigation:navigation-fragment-ktx:$nav"

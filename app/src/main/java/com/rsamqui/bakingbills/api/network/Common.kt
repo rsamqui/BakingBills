@@ -1,6 +1,6 @@
-package com.rsamqui.bakingbills.API.Network
+package com.rsamqui.bakingbills.api.network
 
-import com.rsamqui.bakingbills.API.ApiService
+import com.rsamqui.bakingbills.api.ApiService
 
 object Common {
     private val BASE_URL = "https://bakingbills.herokuapp.com/"

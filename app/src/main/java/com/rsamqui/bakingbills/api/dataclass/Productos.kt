@@ -1,4 +1,4 @@
-package com.rsamqui.bakingbills.API.DataClass
+package com.rsamqui.bakingbills.api.dataclass
 
 import com.google.gson.annotations.SerializedName
 

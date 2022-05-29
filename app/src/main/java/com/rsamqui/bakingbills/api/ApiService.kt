@@ -1,9 +1,9 @@
-package com.rsamqui.bakingbills.API
+package com.rsamqui.bakingbills.api
 
-import com.rsamqui.bakingbills.API.DataClass.Ingredientes
-import com.rsamqui.bakingbills.API.DataClass.Productos
-import com.rsamqui.bakingbills.API.DataClass.Usuarios
-import com.rsamqui.bakingbills.API.DataClass.Presupuesto
+import com.rsamqui.bakingbills.api.dataclass.Ingredientes
+import com.rsamqui.bakingbills.api.dataclass.Productos
+import com.rsamqui.bakingbills.api.dataclass.Usuarios
+import com.rsamqui.bakingbills.api.dataclass.Presupuesto
 import okhttp3.RequestBody
 import okhttp3.ResponseBody
 import retrofit2.Response
