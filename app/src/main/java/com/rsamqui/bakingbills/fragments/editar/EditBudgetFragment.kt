@@ -9,13 +9,23 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
 import com.rsamqui.bakingbills.R
+import com.rsamqui.bakingbills.api.ApiService
+import com.rsamqui.bakingbills.api.network.Common
+import com.rsamqui.bakingbills.api.network.NetworkConnection
 import com.rsamqui.bakingbills.bd.entidades.PresupuestoEntity
 import com.rsamqui.bakingbills.bd.viewmodels.PresupuestoViewModels
 import com.rsamqui.bakingbills.databinding.FragmentEditBudgetBinding
 import kotlinx.android.synthetic.main.fragment_edit_budget.*
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.RequestBody.Companion.toRequestBody
+import org.json.JSONObject
 
 class EditBudgetFragment : Fragment() {
 
+    private lateinit var API: ApiService
     lateinit var fBinding: FragmentEditBudgetBinding
     private val args by navArgs<EditBudgetFragmentArgs>()
     private lateinit var viewModel: PresupuestoViewModels
@@ -40,60 +50,123 @@ class EditBudgetFragment : Fragment() {
             etPrecioT.setText(args.currentBudget.total.toString())
 
             btnEdit.setOnClickListener {
-                updateBudget()
+                checkInternet()
             }
 
             fBinding.btnVolver.setOnClickListener {
                 findNavController().navigate(R.id.edit_budget_to_budget)
             }
 
-            fBinding.deleteBudget.setOnClickListener{
-                deletePresupuesto()
+            fBinding.deleteBudget.setOnClickListener {
+                checkInternetDel()
             }
 
-            fBinding.btnEdit.setOnClickListener{
+            fBinding.btnEdit.setOnClickListener {
                 asegurarEdicion()
             }
 
             calcularTotal()
 
         }
+        API = Common.retrofitService
         setHasOptionsMenu(true)
         return fBinding.root
     }
 
     private fun updateBudget() {
-        val ingrediente = fBinding.etIngrediente.text.toString()
-        val unidades = fBinding.etUnidades.text.toString()
-        val medida = fBinding.etMedida.text.toString()
-        val precio = fBinding.etPrecio.text.toString()
+        val ingredient = fBinding.etIngrediente.text.toString()
+        val units = fBinding.etUnidades.text.toString()
+        val measure = fBinding.etMedida.text.toString()
+        val price = fBinding.etPrecio.text.toString()
         val total = fBinding.etPrecioT.text.toString()
+        val id = args.currentBudget.idPresupuesto
 
-        if (ingrediente.isNotEmpty() && unidades.isNotEmpty() && medida.isNotEmpty() &&
-            precio.isNotEmpty() && total.isNotEmpty()
-        ) {
-            val budget = PresupuestoEntity(
-                args.currentBudget.idPresupuesto,
-                ingrediente,
-                unidades.toDouble(),
-                medida,
-                precio.toDouble(),
-                total.toDouble()
-            )
+        val jsonObject = JSONObject()
+        jsonObject.put("idPresupuesto", id)
+        jsonObject.put("ingrediente", "$ingredient")
+        jsonObject.put("unidades", units)
+        jsonObject.put("medida", measure)
+        jsonObject.put("precio", price)
+        jsonObject.put("total", total)
 
-            viewModel.actualizarPresupuesto(budget)
-            Toast.makeText(
-                requireContext(), "Registro actualizado",
-                Toast.LENGTH_LONG
-            ).show()
-            findNavController().navigate(R.id.edit_budget_to_budget)
-        } else {
-            Toast.makeText(requireContext(), "Debe rellenar todos los campos", Toast.LENGTH_LONG)
-                .show()
+        val jsonObjectString = jsonObject.toString()
+        val requestBody = jsonObjectString.toRequestBody("application/json".toMediaTypeOrNull())
+
+        try {
+            if (fBinding.etIngrediente.text.isNotEmpty() && fBinding.etUnidades.text.isNotEmpty()
+                && fBinding.etMedida.text.isNotEmpty() && fBinding.etPrecio.text.isNotEmpty()
+                && fBinding.etPrecioT.text.isNotEmpty()
+            ) {
+                CoroutineScope(Dispatchers.IO).launch {
+                    API.editPresupuesto(requestBody)
+                }
+
+                var budget = PresupuestoEntity(
+                    id,
+                    ingredient,
+                    units.toDouble(),
+                    measure,
+                    price.toDouble(),
+                    total.toDouble()
+                )
+
+                viewModel.actualizarPresupuesto(budget)
+                Toast.makeText(
+                    requireContext(), "Registro actualizado",
+                    Toast.LENGTH_LONG
+                ).show()
+                findNavController().navigate(R.id.edit_budget_to_budget)
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "Debe rellenar todos los campos",
+                    Toast.LENGTH_LONG
+                )
+                    .show()
+
+            }
+
+        } catch (e: Exception) {
 
         }
-
     }
+
+    private fun checkInternetDel() {
+        val networkConnection = NetworkConnection(requireContext())
+        networkConnection.observe(viewLifecycleOwner) { isConnected ->
+            if (isConnected) {
+                delBudget()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "No hay conexión a Internet, no puede editar ni eliminar datos",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+    }
+
+    private fun checkInternet() {
+        val networkConnection = NetworkConnection(requireContext())
+        networkConnection.observe(viewLifecycleOwner) { isConnected ->
+            if (isConnected) {
+                delBudget()
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "No hay conexión a Internet, no puede editar ni eliminar datos",
+                    Toast.LENGTH_LONG
+                ).show()
+            }
+        }
+    }
+
+    private fun ApiDelBudget(id: Int){
+        CoroutineScope(Dispatchers.IO).launch {
+            API.delPresupuesto(id)
+        }
+    }
+
 
     override fun onCreateOptionsMenu(
         menu: Menu, inflater:
@@ -104,16 +177,41 @@ class EditBudgetFragment : Fragment() {
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         if (item.itemId == R.id.mnuEliminar) {
-            deletePresupuesto()
+            delBudget()
         }
         return super.onOptionsItemSelected(item)
     }
 
-    private fun deletePresupuesto(){
+    private fun delBudget() {
+        val ingredient = fBinding.etIngrediente.text.toString()
+        val units = fBinding.etUnidades.text.toString()
+        val measure = fBinding.etMedida.text.toString()
+        val price = fBinding.etPrecio.text.toString()
+        val total = fBinding.etPrecioT.text.toString()
+
+
+        val jsonObject = JSONObject()
+        jsonObject.put("idPresupuesto", id)
+        jsonObject.put("ingrediente", "$ingredient")
+        jsonObject.put("unidades", units)
+        jsonObject.put("medida", measure)
+        jsonObject.put("precio", price)
+        jsonObject.put("total", total)
 
         val alerta = AlertDialog.Builder(requireContext())
         alerta.setPositiveButton("Si") { _, _ ->
-            viewModel.eliminarPresupuesto(args.currentBudget)
+
+            var budget = PresupuestoEntity(
+                args.currentBudget.idPresupuesto,
+                ingredient,
+                units.toDouble(),
+                measure,
+                price.toDouble(),
+                total.toDouble()
+            )
+
+            viewModel.eliminarPresupuesto(budget)
+            ApiDelBudget(args.currentBudget.idPresupuesto)
             Toast.makeText(
                 requireContext(),
                 "Registro eliminado satisfactoriamente...",
@@ -133,17 +231,17 @@ class EditBudgetFragment : Fragment() {
         alerta.create().show()
     }
 
-    private fun asegurarEdicion(){
+    private fun asegurarEdicion() {
         val alert = AlertDialog.Builder(requireContext())
-        alert.setPositiveButton("He terminado") {_, _ ->
+        alert.setPositiveButton("He terminado") { _, _ ->
             Toast.makeText(
                 requireContext(),
                 "Regsitro editado satisfactoriamente...",
-            Toast.LENGTH_LONG
+                Toast.LENGTH_LONG
             ).show()
             findNavController().navigate(R.id.edit_budget_to_budget)
         }
-        alert.setNegativeButton("Volver a edicion") {_, _ ->
+        alert.setNegativeButton("Volver a edicion") { _, _ ->
             Toast.makeText(
                 requireContext(),
                 "Operación cancelada...",
@@ -155,8 +253,8 @@ class EditBudgetFragment : Fragment() {
         alert.create().show()
     }
 
-    private fun calcularTotal(){
-        fBinding.btnCalcular.setOnClickListener{
+    private fun calcularTotal() {
+        fBinding.btnCalcular.setOnClickListener {
             val cant = (etUnidades.text.toString())
             val price = (etPrecio.text.toString())
 

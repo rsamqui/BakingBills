@@ -17,7 +17,7 @@ interface MainDataBaseProvider {
 }
 
 @Database(
-    entities = [UsuarioEntity::class, ProductoEntity::class, IngredienteEntity::class, PresupuestoEntity::class], version = 8
+    entities = [UsuarioEntity::class, ProductoEntity::class, IngredienteEntity::class, PresupuestoEntity::class], version = 9
 )
 abstract class BDPanaderia : RoomDatabase(), MainDataBaseProvider {
     abstract override fun usuarioDao(): UsuarioDao

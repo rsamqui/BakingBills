@@ -43,6 +43,7 @@ class AddPresupuestoFragment : Fragment() {
 
         viewModel =
             ViewModelProvider(this).get(PresupuestoViewModels::class.java)
+        checkInternet()
 
         fBinding.btnAgregar.setOnClickListener {
             guardarPresupuestoOffline()
@@ -155,10 +156,10 @@ class AddPresupuestoFragment : Fragment() {
                                 PresupuestoEntity(
                                     0,
                                     ingredients,
-                                    units.toDouble(),
+                                    units,
                                     measure,
-                                    price.toDouble(),
-                                    total.toDouble()
+                                    price,
+                                    total
                                 )
                             CoroutineScope(Dispatchers.IO).launch {
                                 viewModel.eliminarPresupuesto(presupuesto)
@@ -179,6 +180,7 @@ class AddPresupuestoFragment : Fragment() {
 
         }
     }
+
     private fun calcularTotal() {
         fBinding.btnCalcular.setOnClickListener {
             val cant = (etUnits.text.toString())
@@ -215,31 +217,27 @@ class AddPresupuestoFragment : Fragment() {
                     val precio = fBinding.etPrice.text.toString()
                     val total = fBinding.etPrecioT.text.toString()
 
-                    if (ingrediente.isNotEmpty() && unidades.isNotEmpty() && medida.isNotEmpty() &&
-                        precio.isNotEmpty() && total.isNotEmpty()
-                    ) {
-                        val presupuesto = PresupuestoEntity(
-                            0, ingrediente, unidades.toDouble(), medida, precio.toDouble(),
-                            total.toDouble()
-                        )
-                        CoroutineScope(Dispatchers.IO).launch {
-                            viewModel.agregarPresupuesto(presupuesto)
-                            Toast.makeText(
-                                requireContext(), "Registro Guardado Localmente",
-                                Toast.LENGTH_LONG
-                            ).show()
+                    val presupuesto = PresupuestoEntity(
+                        0, ingrediente, unidades.toDouble(), medida, precio.toDouble(),
+                        total.toDouble()
+                    )
+                    CoroutineScope(Dispatchers.IO).launch {
+                        viewModel.agregarPresupuesto(presupuesto)
+                        Toast.makeText(
+                            requireContext(), "Registro Guardado Localmente",
+                            Toast.LENGTH_LONG
+                        ).show()
 
-                            findNavController().navigate(R.id.add_budget_to_budget)
+                        findNavController().navigate(R.id.add_budget_to_budget)
 
-                            Toast.makeText(
-                                requireContext(), "No hay conexion a internet",
-                                Toast.LENGTH_LONG
-                            ).show()
-                        }
+                        Toast.makeText(
+                            requireContext(), "No hay conexion a internet",
+                            Toast.LENGTH_LONG
+                        ).show()
                     }
+
                 }
             } catch (e: Exception) {
-
 
             }
         }

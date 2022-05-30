@@ -82,7 +82,7 @@ class AddProductFragment : Fragment() {
             ) {
                 CoroutineScope(Dispatchers.IO).launch {
                     if (count == 0) {
-                        API.addIngrediente(requestBody)
+                        API.addProducto(requestBody)
                     }
 
                     var producto =

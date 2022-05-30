@@ -44,7 +44,7 @@ interface ApiService {
     suspend fun delProducto(@Path("idProducto") idP: Int?): Response<Void>
     @DELETE("usuario/eliminar/{idUsuario}")
     suspend fun delUsuario(@Path("idUsuario") idU: Int?): Response<Void>
-    @DELETE("presupuesto/eliminar/{idIngrediente}")
+    @DELETE("presupuesto/eliminar/{idPresupuesto}")
     suspend fun delPresupuesto(@Path("idPresupuesto") idB: Int?): Response<Void>
 
 }
