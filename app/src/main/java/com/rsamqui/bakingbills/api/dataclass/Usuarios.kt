@@ -3,10 +3,10 @@ package com.rsamqui.bakingbills.api.dataclass
 import com.google.gson.annotations.SerializedName
 
 data class Usuarios (
-    @SerializedName("idUsuario" ) var idUser     : Int?    = null,
-    @SerializedName("nombres"   ) var names      : String? = null,
-    @SerializedName("apellidos" ) var lastnames  : String? = null,
-    @SerializedName("username"  ) var user       : String? = null,
-    @SerializedName("correo"    ) var mail       : String? = null,
+    @SerializedName("idUsuario" ) var idUsuario     : Int?    = null,
+    @SerializedName("username"  ) var username       : String? = null,
+    @SerializedName("nombres"   ) var nombres      : String? = null,
+    @SerializedName("apellidos" ) var apellidos  : String? = null,
+    @SerializedName("correo"    ) var correo       : String? = null,
     @SerializedName("pwd"       ) var pwd        : String? = null
 )
