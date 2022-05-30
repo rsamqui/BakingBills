@@ -105,7 +105,7 @@ class AddPresupuestoFragment : Fragment() {
                     Toast.LENGTH_LONG
                 ).show()
 
-                findNavController().navigate(R.id.add_products_to_products)
+                findNavController().navigate(R.id.add_budget_to_budget)
             } else {
                 Toast.makeText(
                     requireContext(),
@@ -123,10 +123,10 @@ class AddPresupuestoFragment : Fragment() {
         networkConnection.observe(viewLifecycleOwner) { isConnected ->
             if (isConnected) {
                 val BD: BDPanaderia = BDPanaderia.getInstance(requireContext().applicationContext)
-                val daoB: PresupuestoDao = BD.presupuestoDao()
+                val daoP: PresupuestoDao = BD.presupuestoDao()
 
                 CoroutineScope(Dispatchers.IO).launch {
-                    var presupuestos: List<PresupuestoEntity> = daoB.getAll()
+                    var presupuestos: List<PresupuestoEntity> = daoP.getAll()
                     var presupuestosApi = API.getAllPresupuesto()
                     var presupuestosSize = presupuestos.size
                     var presupuestosApiSize = presupuestosApi.size
@@ -154,7 +154,7 @@ class AddPresupuestoFragment : Fragment() {
 
                             var presupuesto =
                                 PresupuestoEntity(
-                                    0,
+                                    id,
                                     ingredients,
                                     units,
                                     measure,
@@ -167,17 +167,15 @@ class AddPresupuestoFragment : Fragment() {
                                 API.addPresupuesto(requestBody)
                             }
                         }
-                    } else {
-                        Toast.makeText(
-                            requireContext(),
-                            "No hay conexión a Internet",
-                            Toast.LENGTH_SHORT
-                        )
-                            .show()
                     }
                 }
+            } else {
+                Toast.makeText(
+                    requireContext(),
+                    "No hay conexión a Internet",
+                    Toast.LENGTH_SHORT
+                ).show()
             }
-
         }
     }
 
