@@ -215,7 +215,7 @@ class EditProductFragment : Fragment() {
         }
         alerta.setTitle("Eliminando ${args.currentProduct.nombre}")
         alerta.setMessage("¿Esta seguro de eliminar a ${args.currentProduct.nombre}?")
-        alerta.create().show()
+        alerta.show()
     }
 }
 

@@ -14,7 +14,6 @@ import com.rsamqui.bakingbills.api.network.Common
 import com.rsamqui.bakingbills.api.network.NetworkConnection
 import com.rsamqui.bakingbills.bd.dao.BDPanaderia
 import com.rsamqui.bakingbills.bd.dao.ProductoDao
-import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
 import com.rsamqui.bakingbills.bd.entidades.ProductoEntity
 import com.rsamqui.bakingbills.bd.viewmodels.ProductoViewModels
 import com.rsamqui.bakingbills.databinding.FragmentAddProductBinding
@@ -179,7 +178,7 @@ class AddProductFragment : Fragment() {
             try {
                 if (isConnected) {
                     guardarRegistro()
-                    count = 4
+                    count = 6
                 } else {
 
                     val nombre = fBinding.etNombre.text.toString()

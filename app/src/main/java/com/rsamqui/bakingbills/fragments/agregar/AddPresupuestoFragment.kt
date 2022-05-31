@@ -207,7 +207,7 @@ class AddPresupuestoFragment : Fragment() {
             try {
                 if (isConnected) {
                     guardarRegistro()
-                    count = 4
+                    count = 3
                 } else {
                     val ingrediente = fBinding.etIngrediente.text.toString()
                     val unidades = fBinding.etUnits.text.toString()
