@@ -149,7 +149,7 @@ class editUsuarioFragment : Fragment() {
 
         val jsonObject = JSONObject()
         jsonObject.put("idUsuario", id)
-        jsonObject.put("username", username)
+        jsonObject.put("username", "$username")
         jsonObject.put("nombres", nombres)
         jsonObject.put("apellidos", apellidos)
         jsonObject.put("correo", correo)
@@ -157,7 +157,7 @@ class editUsuarioFragment : Fragment() {
 
         val alerta = AlertDialog.Builder(requireContext())
         alerta.setPositiveButton("Si") { _, _ ->
-            var usuario = UsuarioEntity(id, username, nombres, apellidos, correo, pwd, true)
+            var usuario = UsuarioEntity(args.currentUsuario.idUsuario, username, nombres, apellidos, correo, pwd, true)
             viewModel.eliminarUsuario(usuario)
             ApiDelUsuario(args.currentUsuario.idUsuario)
             Toast.makeText(
