@@ -8,10 +8,9 @@ import android.widget.Toast
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.fragment.navArgs
-import com.rsamqui.bakingbills.API.DataClass.Ingredientes
-import com.rsamqui.bakingbills.API.ApiService
-import com.rsamqui.bakingbills.API.Network.Common
-import com.rsamqui.bakingbills.API.Network.NetworkConnection
+import com.rsamqui.bakingbills.api.ApiService
+import com.rsamqui.bakingbills.api.network.Common
+import com.rsamqui.bakingbills.api.network.NetworkConnection
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
 import com.rsamqui.bakingbills.bd.viewmodels.IngredienteViewModels

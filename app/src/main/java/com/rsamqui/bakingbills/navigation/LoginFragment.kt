@@ -8,6 +8,7 @@ import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.databinding.FragmentLoginBinding
+import kotlinx.android.synthetic.main.fragment_login.*
 
 class LoginFragment : Fragment() {
 
@@ -30,4 +31,5 @@ class LoginFragment : Fragment() {
 
         return binding.root
     }
+
 }

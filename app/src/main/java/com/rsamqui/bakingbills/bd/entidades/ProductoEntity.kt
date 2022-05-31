@@ -20,8 +20,6 @@ data class ProductoEntity(
     @ColumnInfo(name = "precio")
     val precio: Double,
     @ColumnInfo(name = "peso")
-    val peso: Double,
-    @ColumnInfo(name = "activo")
-    val activo: Boolean
+    val peso: Double
 
 ): Parcelable

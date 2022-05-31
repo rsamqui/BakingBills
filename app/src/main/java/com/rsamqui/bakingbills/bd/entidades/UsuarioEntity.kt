@@ -17,8 +17,8 @@ data class UsuarioEntity(
     val nombres: String,
     @ColumnInfo(name = "apellidos")
     val apellidos: String,
-    @ColumnInfo(name = "email")
-    val email: String,
+    @ColumnInfo(name = "correo")
+    val correo: String,
     @ColumnInfo(name = "pwd")
     val pwd: String,
     @ColumnInfo(name = "activo")

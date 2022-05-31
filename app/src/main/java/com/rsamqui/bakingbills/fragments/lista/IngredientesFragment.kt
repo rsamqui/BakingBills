@@ -1,6 +1,5 @@
 package com.rsamqui.bakingbills.fragments.lista
 
-import android.app.AlertDialog
 import android.os.Bundle
 import android.view.*
 import android.widget.Toast
@@ -9,10 +8,10 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.rsamqui.bakingbills.API.ApiService
-import com.rsamqui.bakingbills.API.DataClass.Ingredientes
-import com.rsamqui.bakingbills.API.Network.Common
-import com.rsamqui.bakingbills.API.Network.NetworkConnection
+import com.rsamqui.bakingbills.api.ApiService
+import com.rsamqui.bakingbills.api.dataclass.Ingredientes
+import com.rsamqui.bakingbills.api.network.Common
+import com.rsamqui.bakingbills.api.network.NetworkConnection
 import com.rsamqui.bakingbills.R
 import com.rsamqui.bakingbills.bd.adapters.IngredienteAdapter
 import com.rsamqui.bakingbills.bd.entidades.IngredienteEntity
@@ -21,9 +20,6 @@ import com.rsamqui.bakingbills.databinding.FragmentIngredientesBinding
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
-import okhttp3.OkHttpClient
-import retrofit2.Retrofit
-import retrofit2.converter.gson.GsonConverterFactory
 import java.lang.Exception
 
 class IngredientesFragment : Fragment() {
